@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:47:07 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/21 20:39:54 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:20:53 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,15 @@ class Sample {
 	
 public:
 
-	Sample( int v );
+	int		foo;
+
+	Sample( void );
 	~Sample( void );
 
 
-	int		getFoo( void ) const;
-	int	compare( Sample *other ) const;
+	void		bar( void ) const;
 
 
-private:
-
-	int		_foo;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:59:42 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/21 20:26:10 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:11:28 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	main() {
 	Sample	instance1( 42 );
 	Sample	instance2( 42 );
 
-	if ( &instance1 == &instance1 )
-		std::cout << "instance1 and instance1 are physically equal" << std::endl;
-	else
-		std::cout << "instance1 and instance1 are not physically equal" << std::endl;
+	// if ( &instance1 == &instance1 )
+	// 	std::cout << "instance1 and instance1 are physically equal" << std::endl;
+	// else
+	// 	std::cout << "instance1 and instance1 are not physically equal" << std::endl;
 
 	if ( &instance1 == &instance2 )
 		std::cout << "instance1 and instance2 are physically equal" << std::endl;
