@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:55:43 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/23 13:55:15 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:16:19 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	void	Exit( void );
 private:
 	Contact	Contacts[8];
-	int		OldCOntact;
+	int		OldContact;
 };
 
 #endif
