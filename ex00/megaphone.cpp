@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:23:14 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/22 19:48:16 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:29:57 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv) {
 	int	n;
 	
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDbACK NOISSE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISSE *";
 	while (argv[++i]) { //En c++ el NULL es nullptr (ej.: argv[++i] != nullptr)
 		n = -1;
 		while (argv[i][++n]) {
