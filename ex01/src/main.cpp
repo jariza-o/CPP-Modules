@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 17:45:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/25 20:20:12 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:38:07 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main ( void )
 			break;
 		}
 		else
-			std::cout << "HA PULSAO MAAL " << std::endl;
+			std::cout << "The Option is Incorrect!!!" << std::endl;
 	}
 
 

@@ -6,10 +6,11 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:03:38 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/25 20:19:44 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:32:09 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../includes/PhoneBook.hpp"
 
 PhoneBook::PhoneBook( void ) {
@@ -44,13 +45,9 @@ void	PhoneBook::Search( void ) {
 	}
 	std::cout << "Select a INDEX: ";
 	std::cin >> index;
-	try {
-		i = std::stoi(index);
-		if (i >= 0 && i <= 7)
-			this->Contacts[i].getDarkSecret();
-		else
-			std::cout << "The INDEX number is incorrect." << std::endl;
-	} catch (const std::invalid_argument& e) {
-		std::cout << "The INDEX entered is incorrect." << std::endl;
-	}
+	i = atoi(index.c_str());
+	if ((i == 0 && index == "0") || (i >= 1 && i <= 7))
+		this->Contacts[i].getDarkSecret();
+	else
+		std::cout << "The INDEX number is incorrect." << std::endl;
 }

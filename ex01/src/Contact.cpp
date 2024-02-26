@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:00:22 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/25 20:32:12 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:15:34 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ Contact::Contact( void ) {
 Contact::~Contact( void ) {
 	// std::cout << "Contact Destructor " << std::endl;
 }
-
-// std::string read() {
-// 	std::string input;
-// 	std::getline(std::cin, input);
-// 	return input;
-// }
 
 void	Contact::CreateContact( void ) {
 	std::cout << "Enter the First Name: ";

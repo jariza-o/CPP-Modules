@@ -6,7 +6,7 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 19:36:46 by jariza-o          #+#    #+#              #
-#    Updated: 2024/02/25 18:07:31 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/02/26 15:35:53 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME	=	PhoneBook
 
 all:	$(NAME)
 $(NAME): ${OBJ}
-	g++ ${CFLAGS} ${OBJ} -o ${NAME}
+	@g++ ${CFLAGS} ${OBJ} -o ${NAME}
 
 clean:
 	@rm -f ${OBJ}
