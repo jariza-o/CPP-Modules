@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:39:53 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/27 17:19:53 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/27 22:21:44 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ public:
 	~Zombie();
 
 	void	announce( void );
+	void	putName( std::string Name );
 
 private:
 	std::string _Name;

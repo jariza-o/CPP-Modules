@@ -6,7 +6,28 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 16:23:52 by jariza-o          #+#    #+#              #
-#    Updated: 2024/02/26 16:23:53 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/02/27 22:16:02 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+
+SRC		=	src/main.cpp src/newZombie.cpp src/randomChump.c src/Zombie.cpp
+
+OBJ		=	$(SRC:.cpp=.o)
+
+NAME	=	Zombie
+
+all:	$(NAME)
+$(NAME): ${OBJ}
+	@g++ ${CFLAGS} ${OBJ} -o ${NAME}
+
+clean:
+	@rm -f ${OBJ}
+
+fclean:	clean
+	@rm -f ${NAME}
+
+re:		fclean all
+
+.PHONY: all clean fclean re
