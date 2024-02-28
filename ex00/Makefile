@@ -6,13 +6,13 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 16:23:52 by jariza-o          #+#    #+#              #
-#    Updated: 2024/02/28 08:53:56 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/02/28 09:23:38 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-SRC		=	src/main.cpp src/newZombie.cpp src/randomChump.cpp src/Zombie.cpp
+SRC		=	src/main.cpp src/newZombie.cpp src/randomChump.cpp src/Zombie.cpp \
 
 OBJ		=	$(SRC:.cpp=.o)
 
