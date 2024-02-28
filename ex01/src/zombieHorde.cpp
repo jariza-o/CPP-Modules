@@ -6,11 +6,10 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 09:13:22 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/02/28 10:00:15 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:41:41 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "../includes/Zombie.hpp"
 
 Zombie*	zombieHorde( int N, std::string name ) {
