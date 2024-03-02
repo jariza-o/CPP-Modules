@@ -6,17 +6,17 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 23:01:28 by jariza-o          #+#    #+#              #
-#    Updated: 2024/02/29 23:01:51 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/03/02 09:24:04 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-SRC		=	 src/main.cpp \
+SRC		=	 main.cpp \
 
 OBJ		=	$(SRC:.cpp=.o)
 
-NAME	=	Sed
+NAME	=	Replace
 
 all:	$(NAME)
 $(NAME): ${OBJ}

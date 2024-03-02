@@ -6,11 +6,37 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 23:02:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/01 16:23:13 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/02 09:24:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <fstream>
+
+void	ft_replace(std::string file, std::string s1, std::string s2) {
+	std::ifstream	input(file); // declaro el fichero de entrada y lo abro
+	std::ofstream	output;
+	std::string		line;
+	size_t			pos;
+	
+	if (!input.is_open()) {
+		std::cout << "Error: Impossible open the file." << std::endl;
+		return ;
+	}
+	file.append(".replace");
+	output.open(file.c_str()); // .c_str() hace que se pase como el ptr del string, como si fuese un string de C
+	while( std::getline(input, line) ) {
+		pos = line.find(s1); // Guarda la posición de donde se encuentra el str
+		while( pos != std::string::npos ) {
+			line.erase(pos, s1.length()); // elimina la longitud de s1 en line, a partir de pos
+			line.insert(pos, s2); // inserta el string s2, en la posición pos
+			pos = line.find(s1);
+		}
+		output << line << std::endl;
+	}
+	input.close();
+	output.close();
+}
 
 int	main(int argc, char **argv) {
 	if (argc != 4) {
@@ -27,5 +53,5 @@ int	main(int argc, char **argv) {
 		std::cout << "Error: fileSTR or s1 is empty." << std::endl;
 		return 1;
 	}
-	
+	ft_replace(file, s1, s2);
 }
