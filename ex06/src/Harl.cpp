@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 10:31:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/02 15:38:21 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:06:05 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	Harl::complain( std::string level ) {
 	void (Harl::*f[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; //Declaras una función que es un puntero de 4 funciones, a las que no les pasas nada.
     std::string lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = -1;
-    int IntLvl = atoi(level.c_str());
 
     while (++i < 4) {
         if (level == lvl[i]) {
