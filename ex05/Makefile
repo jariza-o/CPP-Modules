@@ -6,18 +6,18 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/02 10:17:30 by jariza-o          #+#    #+#              #
-#    Updated: 2024/03/02 10:17:50 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/03/02 14:55:03 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 
-SRC		=	 src/main.cpp \
+SRC		=	 src/main.cpp src/Harl.cpp\
 
 OBJ		=	$(SRC:.cpp=.o)
 
-NAME	=	Replace
+NAME	=	Harl
 
 all:	$(NAME)
 $(NAME): ${OBJ}
