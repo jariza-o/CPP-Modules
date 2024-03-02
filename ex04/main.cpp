@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 23:02:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/02 09:24:49 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/02 14:48:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 	ft_replace(file, s1, s2);
+	return 0;
 }
