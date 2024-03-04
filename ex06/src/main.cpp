@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:49:05 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/02 16:07:38 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:05:56 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ int	main( int argc, char **argv ) {
 		std::cout <<  "[ Probably complaining about insignificant problems ]" << std::endl;
 		break;
 	}
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
-	harl.complain("PAPA");
 
 	return 0;
 }
