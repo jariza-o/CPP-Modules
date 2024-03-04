@@ -6,15 +6,13 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:49:05 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/04 15:05:56 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:09:34 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Harl.hpp"
-
 int	getLvl( char *str ) {
 	std::string lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	for (int i; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		if (lvl[i] == str)
 			return i;
 	}
@@ -46,7 +44,7 @@ int	main( int argc, char **argv ) {
 		harl.complain("WARNING");
 		harl.complain("ERROR");
 		break;
-	case 4:
+	case 3:
 		harl.complain("ERROR");
 		break;
 	default:
