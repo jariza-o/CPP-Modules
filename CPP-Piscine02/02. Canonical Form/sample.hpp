@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   sample.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 17:11:41 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/05 17:37:02 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/03/05 19:11:09 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/03/05 19:19:15 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sample.hpp"
+#ifndef SAMPLE_H
+# define SAMPLE_H
 
-int	main( void ) {
-	Sample	Sample;
+# include <iostream>
 
-	Sample.bar('a');
-	Sample.bar(42);
-	Sample.bar(3.14f);
-	Sample.bar(Sample);
+class Sample {
+public:
+	Sample( void );
+	Sample( int const n );
+	Sample( Sample const & src );
+	~Sample( void );
 
-	return 0;
-}
+	Sample &	operator=( Sample const & rhs );
+
+	int	getFoo( void ) const;
+private:
+	int	_foo;
+};
+
+std::ostream &	operator<<( std::ostream & o, Sample const & i );
+
+#endif

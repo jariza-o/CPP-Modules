@@ -5,20 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 17:11:41 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/05 17:37:02 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/03/05 15:41:25 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/03/05 17:46:51 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sample.hpp"
+#include <iostream>
+#include "Integer.class.hpp"
 
-int	main( void ) {
-	Sample	Sample;
+int	main() {
 
-	Sample.bar('a');
-	Sample.bar(42);
-	Sample.bar(3.14f);
-	Sample.bar(Sample);
+	Integer	x( 30 );
+	Integer	y( 10 );
+	Integer	z( 0  );
+
+	std::cout << "Value of x : " << x << std::endl;
+	std::cout << "Value of y : " << y << std::endl;
+	y = Integer( 12 );
+	std::cout << "Value of y : " << y << std::endl;
+
+	std::cout << "Value of z : " << z << std::endl;
+	z = x + y;
+	std::cout << "Value of z : " << z << std::endl;
 
 	return 0;
 }

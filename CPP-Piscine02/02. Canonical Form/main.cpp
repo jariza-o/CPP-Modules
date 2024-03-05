@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 17:11:41 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/05 17:37:02 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/03/05 18:56:35 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/03/05 19:23:18 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "sample.hpp"
 
-int	main( void ) {
-	Sample	Sample;
+int	main() {
+	Sample	instance1;
+	Sample	instance2( 42 );
+	Sample	instance3( instance1 );
 
-	Sample.bar('a');
-	Sample.bar(42);
-	Sample.bar(3.14f);
-	Sample.bar(Sample);
+	std::cout << instance1 << std::endl;
+	std::cout << instance2 << std::endl;
+	std::cout << instance3 << std::endl;
+
+	instance3 = instance2;
+	std::cout << instance3 << std::endl;
 
 	return 0;
 }
