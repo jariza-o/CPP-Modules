@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:12:39 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/05 20:17:35 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/06 08:06:19 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 class Fixed {
 public:
 	Fixed( void );
-	Fixed( int const n ); //no se si este es el copia
 	Fixed( Fixed const& src);
 	~Fixed();
 
-	int		getRamBits ( void ) const;
+	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
-private:
-	int	_fixedPoint;
-	const int _fractionalBits = 8;		
-};
 
+	Fixed& operator=( Fixed const& src );
+private:
+	int					_fixedPoint;
+	static const int	_fractionalBits = 8;		
+};
 
 #endif
