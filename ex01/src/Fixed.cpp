@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 07:22:24 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/07 16:39:49 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:58:15 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Fixed::Fixed( int const i ) :_fixedPoint( i << this->_fractionalBits ) {
 Fixed::Fixed( float const i ) {
 	std::cout << "Float Constructor called " << std::endl;
 	this->_fixedPoint = roundf(i * (1 << this->_fractionalBits));
-	std::cout << this->_fixedPoint << std::endl;
 }
 
 Fixed::Fixed( Fixed const& src) {
