@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 07:22:24 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/06 16:30:34 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:39:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ Fixed::Fixed( void ) :_fixedPoint( 0 ) {
 	std::cout << "Default Constructor called " << std::endl;
 }
 
-Fixed::Fixed( int const i ) :_fixedPoint( i ) {
+Fixed::Fixed( int const i ) :_fixedPoint( i << this->_fractionalBits ) {
 	std::cout << "Int Constructor called " << std::endl;
 }
 
-Fixed::Fixed( float const i ) :_fixedPoint( roundf(i) ) {
+Fixed::Fixed( float const i ) {
 	std::cout << "Float Constructor called " << std::endl;
+	this->_fixedPoint = roundf(i * (1 << this->_fractionalBits));
+	std::cout << this->_fixedPoint << std::endl;
 }
 
 Fixed::Fixed( Fixed const& src) {
@@ -55,13 +57,15 @@ Fixed& Fixed::operator=( Fixed const& src ){
 }
 
 float	Fixed::toFloat( void ) const {
-	return roundf(this->_fixedPoint);
+	return (float)this->_fixedPoint / (float)(1 << this->_fractionalBits); // Aqui no se usa roundf porque "ya está en float"
 }
 
 int	Fixed::toInt( void ) const {
-	return this->_fixedPoint;
+	return this->_fixedPoint >> this->_fractionalBits;
 }
 
-std::ofstream& operator<<( std::ofstream& o,  Fixed const& src ) {
+std::ostream&	operator<<( std::ostream& o,  Fixed const& src ) {
+	o << src.toFloat();
 
+	return o;
 }

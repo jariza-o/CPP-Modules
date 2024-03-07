@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:12:39 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/06 16:29:29 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:28:48 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ private:
 	static const int	_fractionalBits = 8;		
 };
 
-	std::ostream&	operator<<(std::ofstream& o, Fixed const& src ); // se que debe de ser eso porque me lo dice el compilador, y que tienen que tener más argumentos, pero no se bien porque es asi
+	std::ostream&	operator<<(std::ostream& o, Fixed const& src ); // se que debe de ser eso porque me lo dice el compilador, y que tienen que tener más argumentos, pero no se bien porque es asi
 
 #endif
