@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 07:22:24 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/07 19:58:15 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/10 08:41:59 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed( void ) :_fixedPoint( 0 ) {
 	std::cout << "Default Constructor called " << std::endl;
 }
 
-Fixed::Fixed( int const i ) :_fixedPoint( i << this->_fractionalBits ) {
+Fixed::Fixed( int const i ) :_fixedPoint( i << this->_fractionalBits ) { // se hace i << this->_fractionalBits, porque te pide que el constructor lo convierta a la correspodiente fixed-point value
 	std::cout << "Int Constructor called " << std::endl;
 }
 
@@ -55,12 +55,19 @@ Fixed& Fixed::operator=( Fixed const& src ){
 	return *this;
 }
 
+/* Divide el valor entero almacenado en this->value por el valor flotante
+resultante de (1 << this->bits). Esta división nos da el valor en punto flotante
+equivalente al valor en punto fijo representado por el objeto Fixed. La razón para
+dividir por (1 << this->bits) es que queremos "restaurar" la parte fraccionaria a
+su valor original, ya que inicialmente la habíamos desplazado hacia la izquierda
+para convertir el número a punto fijo. */
+
 float	Fixed::toFloat( void ) const {
 	return (float)this->_fixedPoint / (float)(1 << this->_fractionalBits); // Aqui no se usa roundf porque "ya está en float"
 }
 
 int	Fixed::toInt( void ) const {
-	return this->_fixedPoint >> this->_fractionalBits;
+	return this->_fixedPoint >> this->_fractionalBits; //como lo hemos almacenado en bits, lo devolvemos normal
 }
 
 std::ostream&	operator<<( std::ostream& o,  Fixed const& src ) {
