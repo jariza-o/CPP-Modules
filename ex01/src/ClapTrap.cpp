@@ -6,14 +6,14 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:12 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 16:07:14 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:07:08 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void ) {
-	std::cout << "Void Constructor called" << std::endl;
+	std::cout << "ClapTrap Void Constructor called." << std::endl;
 	this->_Name = "NotName";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap( void ) {
 }
 
 ClapTrap::ClapTrap( std::string Name ) {
-	std::cout << "Name Constructor called" << std::endl;
+	std::cout << "ClapTrap Name Constructor called." << std::endl;
 	this->_Name = Name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -29,12 +29,12 @@ ClapTrap::ClapTrap( std::string Name ) {
 }
 
 ClapTrap::ClapTrap( const ClapTrap& src ) {
-	std::cout << "Copy Constructor called" << std::endl;
+	std::cout << "ClapTrap Copy Constructor called." << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called." << std::endl;
 }
 
 void ClapTrap::attack( const std::string& target ) {

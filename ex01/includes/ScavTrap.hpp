@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:15:17 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 16:11:54 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/03/14 15:21:07 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/03/14 16:02:57 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#ifndef SCAVTRAP_H
+# define SCAVTRAP_H
 
-int	main() {
-	ClapTrap	a;
-	ClapTrap	b("Jose");
-	ClapTrap	c(ClapTrap("Adolfo"));
-	
-	b.attack("Josefina");
-	b.setHitPoints(0);
-	b.attack("Josefina");
+#include <iostream>
+#include "./ClapTrap.hpp"
 
-	a.setAttackPoints(2);
-	a.setName("EL NANO");
-	a.takeDamage(11);
-	
-	c.setHitPoints(2);
-	c.beRepaired(7);
-	std::cout << "The energyPoints of ClapTrap C is " << c.getEnergyPoints() << "." << std::endl;
+class ScavTrap : public ClapTrap {
+public:
+	ScavTrap( void );
+	ScavTrap( std::string Name );
+	ScavTrap( const ScavTrap& src );
+	~ScavTrap( void );
 
-	return 0;	
-}
+	void	guardGate();
+};
+
+#endif

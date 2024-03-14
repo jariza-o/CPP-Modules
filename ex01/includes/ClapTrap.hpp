@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:35:28 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 15:20:48 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:52:23 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	void		setAttackPoints( unsigned int amount );
 
 
-private:
+protected: // Se cambia de private a protected para que en la clase heredara se pueda modificar
 	std::string	_Name;
 	int			_hitPoints;
 	int			_energyPoints;

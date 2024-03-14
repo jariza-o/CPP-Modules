@@ -6,28 +6,19 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:15:17 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 16:11:54 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:13:18 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
 int	main() {
-	ClapTrap	a;
-	ClapTrap	b("Jose");
-	ClapTrap	c(ClapTrap("Adolfo"));
-	
-	b.attack("Josefina");
-	b.setHitPoints(0);
-	b.attack("Josefina");
+	ScavTrap	c("PEPE");
 
-	a.setAttackPoints(2);
-	a.setName("EL NANO");
-	a.takeDamage(11);
-	
-	c.setHitPoints(2);
-	c.beRepaired(7);
 	std::cout << "The energyPoints of ClapTrap C is " << c.getEnergyPoints() << "." << std::endl;
+	std::cout << "The hitPoints of ClapTrap C is " << c.getHitPoints() << "." << std::endl;
+	std::cout << "The attackPoints of ClapTrap C is " << c.getAttackPoints() << "." << std::endl;
 
 	return 0;	
 }
