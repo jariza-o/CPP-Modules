@@ -1,6 +1,11 @@
 # VS Code
 .vscode
 
+# Compiler files
+ClapTrap
+FragTrap
+ScavTrap
+
 # Prerequisites
 *.d
 
