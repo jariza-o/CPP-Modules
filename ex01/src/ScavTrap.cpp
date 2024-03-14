@@ -6,20 +6,20 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:37:44 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 16:12:18 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:23:32 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) {
+ScavTrap::ScavTrap( void ) : ClapTrap() {
 	std::cout << "ScavTrap Void Constructor called." << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap( std::string Name ) {
+ScavTrap::ScavTrap( std::string Name ) : ClapTrap( Name ) {
 	std::cout << "ScavTrap Name Constructor called." << std::endl;
 	this->_Name = Name;
 	this->_hitPoints = 100;
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap( std::string Name ) {
 	this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap( const ScavTrap& src ) {
+ScavTrap::ScavTrap( const ScavTrap& src ) : ClapTrap( src ) {
 	std::cout << "ScavTrap Copy Constructor called." << std::endl;
 	*this = src;
 }

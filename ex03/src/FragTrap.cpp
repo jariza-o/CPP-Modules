@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:21:01 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 20:11:22 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:56:11 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ FragTrap::~FragTrap( void ) {
 
 void	FragTrap::highFivesGuys(void) {
     std::cout << "[Positive high]: fives request." << std::endl;
+}
+
+FragTrap&	FragTrap::operator=(FragTrap const& src) {
+	if (this != &src) {
+		this->_Name = src._Name;
+		this->_hitPoints = src._hitPoints;
+		this->_energyPoints = src._energyPoints;
+		this->_attackDamage = src._attackDamage;
+	}
+	return *this;
 }
