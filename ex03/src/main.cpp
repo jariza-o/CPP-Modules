@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:15:17 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 21:05:51 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:18:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main() {
 
 	c.whoAmi();
 	c.attack("ddd");
+	c.guardGate();
+	c.highFivesGuys();
 
 	// std::cout << "The Name of FragTrap C is " << c.ClapTrap::getName() << "." << std::endl;
 	// std::cout << "The energyPoints of FragTrap C is " << c.getEnergyPoints() << "." << std::endl;

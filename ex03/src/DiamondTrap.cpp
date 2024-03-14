@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:14:10 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 21:07:25 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:19:14 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ DiamondTrap::DiamondTrap( std::string Name ) :_Name( Name ), ScavTrap( Name ), F
 	this->_hitPoints = FragTrap::getHitPoints();
 	this->_energyPoints = ScavTrap::getEnergyPoints();
 	this->_attackDamage = FragTrap::getAttackPoints();
-	std::cout << "ARASTEPAAAAA: " << FragTrap::getAttackPoints() << std::endl;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap& src ) : ScavTrap( src ), FragTrap( src ) {
