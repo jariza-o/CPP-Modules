@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:50:13 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 21:03:47 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:24:42 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "./ScavTrap.hpp"
 #include "./FragTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public FragTrap, public ScavTrap { // Al heredar de dos clases, el compilador falla y solo coge de la segunda. Lo pongo así para que la función attack vaya bien
 private:
 	std::string _Name;
 	int			_hitPoints;

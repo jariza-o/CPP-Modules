@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:14:10 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 21:19:14 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:26:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 DiamondTrap::DiamondTrap( void ) : ScavTrap(), FragTrap() {
 	std::cout << "DiamondTrap Void Constructor called." << std::endl;
-	this->_hitPoints = FragTrap::getHitPoints();
-	this->_energyPoints = ScavTrap::getEnergyPoints();
-	this->_attackDamage = FragTrap::getAttackPoints();
+	// this->_hitPoints = FragTrap::getHitPoints(); // No Puedo definirlo como la de abajo por el fallo de c++
+	this->_energyPoints = ScavTrap::getEnergyPoints(); 
+	// this->_attackDamage = FragTrap::getAttackPoints();
+	this->_hitPoints = 100;
+	this->_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap( std::string Name ) :_Name( Name ), ScavTrap( Name ), FragTrap( Name ) {
 	std::cout << "DiamondTrap Name Constructor called." << std::endl;
-	this->_hitPoints = FragTrap::getHitPoints();
+	// this->_hitPoints = FragTrap::getHitPoints();
 	this->_energyPoints = ScavTrap::getEnergyPoints();
-	this->_attackDamage = FragTrap::getAttackPoints();
+	// this->_attackDamage = FragTrap::getAttackPoints();
+	this->_hitPoints = 100;
+	this->_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap& src ) : ScavTrap( src ), FragTrap( src ) {
