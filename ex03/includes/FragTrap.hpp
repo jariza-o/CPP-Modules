@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:22:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/15 15:57:02 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:15:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ public:
 	FragTrap( std::string Name );
 	FragTrap( const FragTrap& src );
 	~FragTrap( void );
+
+	static int	pHit; // Porque falla c++ con varias herencias, y los valores tienen que ser hererados en Diamond
+	static int	pAttack;
 
 	void	highFivesGuys(void);
 
