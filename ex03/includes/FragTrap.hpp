@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:22:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 21:04:01 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:57:02 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ public:
 
 	void	highFivesGuys(void);
 
-	FragTrap&	operator=(FragTrap const& src);
 };
 
 #endif

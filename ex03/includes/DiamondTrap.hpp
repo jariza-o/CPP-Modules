@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:50:13 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/15 15:24:42 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:56:26 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ public:
 	using	ScavTrap::attack;
 
 	void	whoAmi();
-
-	DiamondTrap&	operator=(DiamondTrap const& src); //creo que no sirve para nada
 
 };
 

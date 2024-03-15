@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:12 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 20:54:38 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:56:37 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,4 @@ void	ClapTrap::setEnergyPoints( unsigned int amount ) {
 
 void	ClapTrap::setAttackPoints( unsigned int amount ) {
 	this->_attackDamage = amount;
-}
-
-ClapTrap&	ClapTrap::operator=(ClapTrap const& src) {
-	if (this != &src) {
-		this->_Name = src._Name;
-		this->_hitPoints = src._hitPoints;
-		this->_energyPoints = src._energyPoints;
-		this->_attackDamage = src._attackDamage;
-	}
-	return *this;
 }

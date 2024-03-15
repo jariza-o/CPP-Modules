@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:14:10 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/15 15:26:49 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:56:22 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,4 @@ DiamondTrap::~DiamondTrap( void ) {
 void	DiamondTrap::whoAmi() {
 	std::cout << "DiamondTrap Name: " << this->_Name << "." << std::endl;
 	std::cout << "ClapTrap Name: " << ClapTrap::_Name << "." << std::endl;
-}
-
-DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& src) {
-	if (this != &src) {
-		this->_Name = src._Name;
-		this->_hitPoints = src._hitPoints;
-		this->_energyPoints = src._energyPoints;
-		this->_attackDamage = src._attackDamage;
-	}
-	return *this;
 }
