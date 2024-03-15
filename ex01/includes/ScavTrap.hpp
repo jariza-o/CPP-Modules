@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:21:07 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 16:02:57 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:53:11 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ public:
 	~ScavTrap( void );
 
 	void	guardGate();
+
+	void	attack( const std::string& target );
 };
 
 #endif

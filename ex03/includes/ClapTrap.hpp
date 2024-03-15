@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:35:28 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 20:53:22 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:52:59 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	ClapTrap( const ClapTrap& src );
 	~ClapTrap();
 
-	void	attack( const std::string& target );
+	virtual void	attack( const std::string& target ); //Se pasa a virtual para poder sobreescribirla en ScavTrap
 	void	takeDamage( unsigned int amount );
 	void	beRepaired( unsigned int amount );
 
@@ -36,8 +36,6 @@ public:
 	void		setHitPoints( unsigned int amount );
 	void		setEnergyPoints( unsigned int amount );
 	void		setAttackPoints( unsigned int amount );
-	
-	ClapTrap&	operator=(ClapTrap const& src);
 
 
 protected: // Se cambia de private a protected para que en la clase heredara se pueda modificar

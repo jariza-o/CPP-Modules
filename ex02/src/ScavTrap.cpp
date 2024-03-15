@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:37:44 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/14 20:10:40 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:52:06 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ ScavTrap::~ScavTrap( void ) {
 
 void	ScavTrap::guardGate() {
 	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+}
+
+void ScavTrap::attack( const std::string& target ) {
+	if (this->checkInfo()) {
+		std::cout << "ScavTrap " << this->_Name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energyPoints--;
+	}
 }
