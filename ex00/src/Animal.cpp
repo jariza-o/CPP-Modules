@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:50:32 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/19 20:39:50 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:09:03 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 Animal::Animal( void ) {
 	std::cout << "Animal Void Constructor called." << std::endl;
-	this->type = "Not Specified"; // No sé si quitarlo
-}
-
-Animal::Animal( std::string type ) {
-	std::cout << "Animal Type Constructor called." << std::endl;
-	this->type = type;
+	this->type = "Animal";
 }
 
 Animal::Animal( const Animal& src ) {
@@ -31,6 +26,17 @@ Animal::~Animal() {
 	std::cout << "Animal Destructor called." << std::endl;
 }
 
-void	Animal::makeSound() {
+void	Animal::makeSound() const {
 	std::cout << "I'm an AAAAANIIMAAAAAL." << std::endl;
+}
+
+Animal&	Animal::operator=(const Animal& src ) {
+	std::cout << "Animal Assignation Equal Operator called." << std::endl;
+	this->type = src.getType();
+	return *this;
+}
+
+
+std::string	Animal::getType() const {
+	return this->type;
 }

@@ -6,18 +6,24 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:34:59 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/19 20:37:40 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:06:58 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#ifndef DOG_H
+# define DOG_H
+
+#include "./Animal.hpp"
 
 class Dog : public Animal {
 public:
 	Dog( void );
-	Dog( std::string type ); //Nose si eliminar po como poner para el formato correcto
 	Dog( const Dog& src );
 	~Dog();
 	
-	virtual void	makeSound();
+	virtual void	makeSound() const;
+
+	Dog&			operator=( const Dog& src );
 };
+
+#endif

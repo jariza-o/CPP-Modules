@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 18:39:14 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/20 18:21:19 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/03/20 17:47:20 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/03/20 18:19:10 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef WRONGANIMAL_H
+# define WRONGANIMAL_H
 
 #include <iostream>
 
-
-/* Destructor: Este es virtual para que si al declarar un hijo lo haces de la siguiente manera:
-	const Animal*	meta = new Animal(); 
-Salgan  los dos destructores (Destrucción Poliformica) */
-class Animal {
+class WrongAnimal {
 public:
-	Animal( void );
-	Animal( const Animal& src );
-	virtual ~Animal(); // Virtual para las clases Herederas (Explicacion arriba)
+	WrongAnimal();
+	WrongAnimal( const WrongAnimal& src );
+	virtual ~WrongAnimal();
 
 	virtual void	makeSound() const;
 
-	Animal&			operator=( const Animal& src );
-	std::string		getType() const;
+	WrongAnimal&			operator=( const WrongAnimal& src );
+	std::string				getType() const;
+
 protected:
 	std::string	type;
 };

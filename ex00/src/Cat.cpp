@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:38:24 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/19 20:39:25 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:08:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 
 Cat::Cat( void ) : Animal() {
 	std::cout << "Cat Void Constructor called." << std::endl;
-	this->type = "Not Specified"; // No sé si quitarlo
-}
-
-Cat::Cat( std::string type ) : Animal( type ) {
-	std::cout << "Cat Type Constructor called." << std::endl;
-	this->type = type;
+	this->type = "Cat";
 }
 
 Cat::Cat( const Cat& src ) : Animal( src ) {
@@ -32,6 +27,12 @@ Cat::~Cat() {
 	std::cout << "Cat Destructor called." << std::endl;
 }
 
-void	Cat::makeSound() {
+void	Cat::makeSound() const {
 	std::cout << "MIAAUU MIAAUUU" << std::endl;
+}
+
+Cat&	Cat::operator=( const Cat& src ) {
+	std::cout << "Cat Assignation Equal Operator called." << std::endl;
+	this->type = src.getType();
+	return *this;
 }
