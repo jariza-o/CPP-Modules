@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:50:32 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/20 18:09:03 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:34:28 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ Animal::Animal( const Animal& src ) {
 
 Animal::~Animal() {
 	std::cout << "Animal Destructor called." << std::endl;
-}
-
-void	Animal::makeSound() const {
-	std::cout << "I'm an AAAAANIIMAAAAAL." << std::endl;
 }
 
 Animal&	Animal::operator=(const Animal& src ) {

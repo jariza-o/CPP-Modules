@@ -1,7 +1,9 @@
 #Compiled Objects
 Polymorphism
-# VSCode
+
+# VSCode and .DS_Store
 .vscode
+.DS_Store
 
 # Prerequisites
 *.d
