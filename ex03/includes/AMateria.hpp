@@ -32,7 +32,7 @@ public:
 	virtual AMateria* clone() const = 0; // el = 0 indica de que la funcion es abstracta, y es para herencia no se hace
 	virtual void use( ICharacter& target ) = 0;
 
-	//OPERADOR DE = para formato canonico
+	AMateria&	operator=(const AMateria& src );
 };
 
 #endif

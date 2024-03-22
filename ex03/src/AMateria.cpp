@@ -34,3 +34,11 @@ AMateria::~AMateria() {
 std::string const& AMateria::getType() const {
 	return this->type;
 }
+
+AMateria&	AMateria::operator=(const AMateria& src ) {
+	std::cout << "AMateria Equal Operator called." << std::endl;
+	if (this->type != src.getType())
+		this->type = src.getType();
+
+	return *this;
+}
