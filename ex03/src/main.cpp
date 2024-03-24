@@ -6,15 +6,17 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:53:14 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 17:02:07 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/24 20:29:15 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/AMateria.hpp"
+#include "../includes/Character.hpp"
 #include "../includes/Ice.hpp"
 #include "../includes/Cure.hpp"
 #include "../includes/ICharacter.hpp"
-#include "../includes/Character.hpp"
+#include "../includes/IMateriaSource.hpp"
+#include "../includes/MateriaSource.hpp"
 
 int main() {
 	// IMateriaSource* src = new MateriaSource();

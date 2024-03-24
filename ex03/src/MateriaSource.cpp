@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:12:46 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 17:27:16 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/24 20:26:21 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ AMateria*	MateriaSource::createMateria( std::string const & type ) { // LAS QQUE
 	
 }
 
+AMateria* MateriaSource::getMateria(int idx) {
+	if (idx >= 0 && idx <= 3)
+		return this->_materias[idx];
+	return NULL;
+}
+
 MateriaSource&	MateriaSource::operator=( const MateriaSource& src ) {
-	
+	for (int i = 0; i < 4; i++) {
+		if (this->_materias[i] != src.getMateria(i))
+			this->_materias[i] = src.getMateria(i);
+	}
+	return *this;
 }
