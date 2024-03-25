@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:12:46 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/25 17:08:17 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:41:26 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	MateriaSource::learnMateria( AMateria* m ) { //Busco si hay algun slot de m
 	for (int i = 0; i < 4; i++) {
 		if (!this->_materias[i]) {
 			this->_materias[i] = m->clone();
+			delete m; // Es necesario para evitar leaks con el main del subject
 			return ;
 		}
 	}
