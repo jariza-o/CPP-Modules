@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:17:50 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/21 18:35:51 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:21:41 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ protected:
 
 public:
 	AMateria( std::string const & type );
-	~AMateria();
+	virtual ~AMateria(); // Lo pongo como virtual para evitar warning en destructor de MateriaSource
 	
 	std::string const & getType() const; //Returns the materia type
 	

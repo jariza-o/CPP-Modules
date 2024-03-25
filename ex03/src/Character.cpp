@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 11:20:40 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 16:56:18 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:22:11 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 #include "../includes/ICharacter.hpp"
 #include "../includes/Character.hpp"
 
-Character::Character( void ) : ICharacter() {
+Character::Character( void ) {
 	std::cout << "Character Void Constructor called." << std::endl;
 }
 
-Character::Character( const Character& src ) : ICharacter( src ) {
+Character::Character( const Character& src ) {
 	std::cout << "Character Copy Constructor called." << std::endl;
 	*this = src;
+}
+
+Character::Character( std::string name ) : _name(name) {
+	std::cout << "Character Name Constructor called." << std::endl;
 }
 
 Character::~Character() {
@@ -40,14 +44,15 @@ void Character::equip(AMateria* m) {
 }
 void Character::unequip(int idx) {
 	if ((idx >= 0 && idx <= 3) && this->_allMateria[idx])
-		this->_allMateria[idx] == NULL;
+		this->_allMateria[idx] = NULL;
 }
 void Character::use(int idx, ICharacter& target) {
-	if ((idx >= 0 && idx <= 3) && this->_allMateria[idx])
+	if ((idx >= 0 && idx <= 3) && this->_allMateria[idx]) {
 		this->_allMateria[idx]->use(target);
+	}
 }
 
-AMateria* Character::getMateria(int idx) {
+AMateria* Character::getMateria(int idx) const {
 	if (idx >= 0 && idx <= 3)
 		return this->_allMateria[idx];
 	return NULL;

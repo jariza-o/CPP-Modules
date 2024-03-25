@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 11:37:56 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 16:50:16 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:52:44 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class Character : public ICharacter {
 public:
 	Character( void );
+	Character( std::string name );
 	Character( const Character& src );
 	~Character();
 	
@@ -28,14 +29,13 @@ public:
 	void				unequip( int idx );
 	void 				use( int idx, ICharacter& target );
 
-	AMateria*	getMateria(int idx);
+	AMateria*	getMateria(int idx) const;
 
 	Character&	operator=( const Character& src );
 
 private:
 	std::string	_name;
 	AMateria*	_allMateria[4]; // NOSE QUE TAMAÑO PONER AUN || Tiene que ser puntero porque al ser abstracta no se puede instanciar, pero si ver la dirección de memoria
-	// Creo que tiene que ser un array de materia ya que unequip no la elimina
 };
 
 #endif

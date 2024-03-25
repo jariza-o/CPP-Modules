@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:12:46 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 20:26:21 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:08:17 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,44 @@
 #include "../includes/IMateriaSource.hpp"
 #include "../includes/MateriaSource.hpp"
 
-MateriaSource::MateriaSource( void ) : IMateriaSource() {
+MateriaSource::MateriaSource( void ) {
 	std::cout << "MateriaSource Void Constructor called." << std::endl;
 }
 
-MateriaSource::MateriaSource( const MateriaSource& src ) : MateriaSource( src ) {
+MateriaSource::MateriaSource( const MateriaSource& src ) {
 	std::cout << "MateriaSource Void Constructor called." << std::endl;
 	*this = src;
 }
 
 MateriaSource::~MateriaSource() {
 	std::cout << "MateriaSource Destructor Constructor called." << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if (this->_materias[i])
+			delete this->_materias[i];
+	}
 }
 
-void	MateriaSource::learnMateria( AMateria* m ) { //Busco si hay algun slot de materias vacio y se ela enseño
+void	MateriaSource::learnMateria( AMateria* m ) { //Busco si hay algun slot de materias vacio y se la enseño
+	std::cout << "LearnMateria" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		if (!this->_materias[i]) {
-			this.materias[i] = m->clone();
+			this->_materias[i] = m->clone();
 			return ;
 		}
 	}
 }
+
 AMateria*	MateriaSource::createMateria( std::string const & type ) { // LAS QQUE DAN FALLO DE RETURN TIENEN QUE SER VIRTUAL
+	std::cout << "CreateMateria" << std::endl;
 	for (int i = 0; i < 4; i++) {
-		if (this->_materias[i] && this->_materias[i]->getType == type ) {
-			return AMateria(this->_materias[i]->clone());
+		if (this->_materias[i]->getType() == type ) {
+			return this->_materias[i]->clone();
 		}
 	}
-	
+	return NULL;
 }
 
-AMateria* MateriaSource::getMateria(int idx) {
+AMateria* MateriaSource::getMateria(int idx) const {
 	if (idx >= 0 && idx <= 3)
 		return this->_materias[idx];
 	return NULL;

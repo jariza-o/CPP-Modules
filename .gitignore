@@ -5,6 +5,9 @@ Polymorphism
 .vscode
 .DS_Store
 
+# Valgrind
+*.dSYM
+
 # Prerequisites
 *.d
 

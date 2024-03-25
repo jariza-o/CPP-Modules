@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 16:05:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/24 20:17:22 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:39:15 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	void		learnMateria( AMateria* m);
 	AMateria*	createMateria( std::string const & type );
 
-	AMateria* getMateria(int idx);
+	AMateria* getMateria(int idx) const;
 
 	MateriaSource&	operator=( const MateriaSource& src );
 

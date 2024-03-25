@@ -6,13 +6,13 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 14:52:36 by jariza-o          #+#    #+#              #
-#    Updated: 2024/03/24 17:28:25 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/03/25 17:01:27 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	=	-Wall -Werror -Wextra -Wno-shadow -std=c++98
+CFLAGS	=	-Wall -Werror -Wextra -g -std=c++98
 
-SRC		=	src/main.cpp src/AMateria.cpp src/Ice.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.hpp \
+SRC		=	src/main.cpp src/AMateria.cpp src/Ice.cpp src/Cure.cpp src/Character.cpp src/MateriaSource.cpp \
 
 OBJ		=	$(SRC:.cpp=.o)
 
