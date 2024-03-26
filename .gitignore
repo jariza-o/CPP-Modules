@@ -1,3 +1,10 @@
+# VSCode and .DS_Store
+.vscode
+.DS_Store
+
+# Valgrind
+*.dSYM
+
 # Prerequisites
 *.d
 
