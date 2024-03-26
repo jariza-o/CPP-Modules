@@ -12,7 +12,7 @@ This is a set of c++ mini-projects. Actually, these are 2 projects in the cursus
 ## CPP Piscine
 In this brunch you can see the code from the Intra E-learning recourses.
 
-https://github.com/jariza-o/CPP-Modules/tree/cpp0_piscine
+**https://github.com/jariza-o/CPP-Modules/tree/cpp_piscine**
 
 ## First Part
 1. **[CPP00](https://github.com/jariza-o/CPP-Modules/tree/cpp00)**
