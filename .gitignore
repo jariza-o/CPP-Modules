@@ -8,6 +8,9 @@
 # Prerequisites
 *.d
 
+# Compiled Files
+Bureaucrat
+
 # Compiled Object files
 obj/
 *.slo
