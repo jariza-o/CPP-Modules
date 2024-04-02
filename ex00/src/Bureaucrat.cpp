@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 20:32:28 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/31 20:42:11 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:29:28 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,29 @@ Bureaucrat::Bureaucrat( std::string name ) : _name(name), _grade(1) {
 }
 Bureaucrat::Bureaucrat( int grade ) : _name("void") {
 	std::cout << "Bureaucrat Grade Constructor called." << std::endl;
-	if (grade < 1 || grade > 150) { // AQUI TENGO QUE USAR EXCEPCIONES TRY CATH
+	try {
+		if (grade < 1 || grade > 150)
+			throw std::exception(); // Despues del throw pasa al catch directamente
+		this->_grade = grade;
+	}
+	catch (const std::exception& e) {
 		this->_grade = 1;
 		std::cout << "The Grade Int is incorrect." << std::endl;
 	}
-	else
-		this->_grade = grade;
+	return ;
 }
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 	std::cout << "Bureaucrat Name and Grade Constructor called." << std::endl;
-	if (grade < 1 || grade > 150) { // AQUI TENGO QUE USAR EXCEPCIONES TRY CATH
+	try {
+		if (grade < 1 || grade > 150)
+			throw std::exception(); // Despues del throw pasa al catch directamente
+		this->_grade = grade;
+	}
+	catch (const std::exception& e) {
 		this->_grade = 1;
 		std::cout << "The Grade Int is incorrect." << std::endl;
 	}
-	else
-		this->_grade = grade;
+	return ;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -50,17 +58,40 @@ int	Bureaucrat::getGrade() const {
 	return this->_grade;
 }
 
-// COMO 1 es es mas alto y 150 el mas bajo la incrementación y decrementación está mal
-
-void	Bureaucrat::incrementGrade( int i ) {
-	if ((this->_grade + i) > 0 && (this->_grade + i) < 151)  // AQUI TENGO QUE USAR EXCEPCIONES TRY CATH
-		this->_grade += i;
-	else
-		std::cout << "The Grade Sum is incorrect." << std::endl;
+void	Bureaucrat::incrementGrade() {
+	try {
+		if ((this->_grade - 1) < 1)
+			throw GradeTooHighException();
+		this->_grade -= 1;
+	}
+	catch (const GradeTooHighException& e) {
+		std::cout << e.whate() << std::endl;
+	}
+	return ;
 }
-void	Bureaucrat::decrementGrade( int i ) {
-	if ((this->_grade - i) > 0 && (this->_grade - i) < 151) // AQUI TENGO QUE USAR EXCEPCIONES TRY CATH
-		this->_grade -= i;
-	else
-		std::cout << "The Grade Subtract is incorrect." << std::endl;
+void	Bureaucrat::decrementGrade() {
+	
+	try {
+		if ((this->_grade + 1) > 150)
+			throw GradeTooLowException();
+		this->_grade += 1;
+	}
+	catch (const GradeTooLowException& e) {
+		std::cout << e.whate() << std::endl;
+	}
+	return ;
+}
+
+const char*	Bureaucrat::GradeTooHighException::whate() const throw() {
+	return "The Grade is the highest.";
+}
+
+const char*	Bureaucrat::GradeTooLowException::whate() const throw() {
+	return "The Grade is the lowest.";
+}
+
+
+std::ostream&	operator<<( std::ostream& o, const Bureaucrat& src ) {
+	o << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
+	return o;
 }

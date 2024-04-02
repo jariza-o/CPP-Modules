@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:44:36 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/03/26 12:44:36 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:22:34 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define BUREAUCRAT_H
 
 #include <iostream>
+#include <iostream>
+#include <stdexcept>
 
-class Bureaucrat { // TIENE QUE TENER FORMATO CANCNICO ESTA???
+class Bureaucrat {
 public:
 	Bureaucrat( void );
 	Bureaucrat( std::string name );
@@ -25,14 +27,24 @@ public:
 
 	std::string	getName() const;
 	int			getGrade() const;
-	void		incrementGrade( int i );
-	void		decrementGrade( int i );
+	void		incrementGrade();
+	void		decrementGrade();
+	
+	class GradeTooHighException : public std::exception {
+		public:
+            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw() 
 
-	std::ostream&	operator<<( std::ostream& o, const Bureaucrat& src );
+	};
+	class GradeTooLowException : public std::exception {
+		public:
+            virtual const char* whate() const throw();
+	};
 
 private:
 	const std::string	_name;
 	int					_grade;
 };
+
+std::ostream&	operator<<( std::ostream& o, const Bureaucrat& src );
 
 #endif
