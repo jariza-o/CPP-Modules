@@ -12,36 +12,29 @@
 
 #include "../includes/Form.hpp"
 
-Form::Form() : _sign(false) {
+Form::Form() {
 	std::cout << "Form Void Constructor called." << std::endl;
+	this->_sign = false;
 }
 
-Form::Form(std::string name) {
+Form::Form(std::string name) : _name(name) {
 	std::cout << "Form Name Constructor called." << std::endl;
 	this->_sign = false;
-	this->_name = name;
 }
 
-Form::Form(int signGrade, int execGrade) {
+Form::Form(int signGrade, int execGrade) : _signGrade(signGrade), _execGrade(execGrade) {
 	std::cout << "Form Grades Constructor called." << std::endl;
 	this->_sign = false;
-	this->_signGrade = signGrade;
-	this->_execGrade = execnGrade;
 }
 
-Form::Form(std::string name, int signGrade) {
+Form::Form(std::string name, int signGrade) : _name(name), _signGrade(signGrade) {
     std::cout << "Form Name Grade Constructor called." << std::endl;
 	this->_sign = false;
-	this->_name = name;
-	this->_signGrade = signGrade;
 }
 
-Form(std::string name, int signGrade, int execGrade) {
+Form(std::string name, int signGrade, int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade) {
     std::cout << "Form Name Grades Constructor called." << std::endl;
 	this->_sign = false;
-	this->_name = name;
-	this->_signGrade = signGrade;
-	this->_execGrade = execnGrade;
 }
 
 Form::Form(const Form& src) {
@@ -53,8 +46,31 @@ Form::~Form() {
 	std::cout << "Form Destructor called." << std::endl;
 }
 
+std::string	getName() const {
+	return this->_name;
+}
+
+bool	getSign() const {
+	return this->_sign;
+}
+
+int	getSignGrade() const {
+	return this->_signGrade;
+}
+int	getExecGrade() const {
+	return this->_execGrade;
+}
+
 Form&	Form::operator=(const Form& src) {
-	
+	std::cout << "Form Equal Operator called." << std::endl;
+	if (this->_name != src.getName())
+		this->_name == src.getName();
+	if (this->_sign != src.getSign())
+		this->_sign = src.getSign();
+	if (this->_signGrade != src.getSignGrade())
+		this->_signGrade = src.getSignGrade();
+	if (this->_execGrade != src.getExecGrade())
+		this->_execGrade = src.getExecGrade();
 }
 
 const char*	Form::GradeTooHighException::whate() const throw() {

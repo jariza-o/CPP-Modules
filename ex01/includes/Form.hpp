@@ -29,6 +29,11 @@ public:
 
 	Form&	operator=(const Form& src);
 	
+	std::string	getName() const;
+	bool		getSign() const;
+	int			getSignGrade() const;
+	int			getExecGrade() const;
+
 	class GradeTooHighException : public std::exception {
 		public:
             virtual const char* whate() const throw();
@@ -44,7 +49,7 @@ public:
 private:
 	const std::string	_name;
 	bool				_sign;
-	const int			_signGrade;
+	const int			_signGrade; //tiene que ser constante???
 	const int			_execGrade;
 };
 
