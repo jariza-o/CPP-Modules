@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/02 18:08:25 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:07:44 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "./Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
+
+class Bureaucrat;
 
 class Form {
 public:
@@ -29,7 +31,7 @@ public:
 
 	Form&	operator=(const Form& src);
 	
-	std::string	getName() const;
+	std::string	getName() const; // Realmente no tienen que ser const porque al ser ya const no se pueden modificar
 	bool		getSign() const;
 	int			getSignGrade() const;
 	int			getExecGrade() const;
@@ -44,15 +46,15 @@ public:
             virtual const char* whate() const throw();
 	};
 
-	void	beSigned(const Bureaucrat& src); //ESTA BIEN PASAO EL BUROCRATA??
+	bool	beSigned(const Bureaucrat& src);
 
 private:
 	const std::string	_name;
 	bool				_sign;
-	const int			_signGrade; //tiene que ser constante???
+	const int			_signGrade;
 	const int			_execGrade;
 };
 
-std::ostream&	operator<<( std::ostream& o, const Form& src );
+std::ostream&	operator<<(std::ostream& o, const Form& src);
 
 #endif

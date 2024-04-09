@@ -6,13 +6,13 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/02 17:07:46 by jariza-o          #+#    #+#              #
-#    Updated: 2024/04/02 17:43:39 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/04/09 17:42:02 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
 
-SRC		=	src/main.cpp src/Bureaucrat.cpp \
+SRC		=	src/main.cpp src/Bureaucrat.cpp src/Form.cpp \
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o)) # addprefix añade a cada archivo .o el obj/
 

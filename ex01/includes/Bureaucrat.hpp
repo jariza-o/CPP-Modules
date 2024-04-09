@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:44:36 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/02 17:58:07 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:29:19 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "./Form.hpp"
+
+class Form; // Puesto para evitar fallos de entreenlazamiento (sino no compila)
 
 class Bureaucrat {
 public:
@@ -38,6 +41,8 @@ public:
 		public:
             virtual const char* whate() const throw();
 	};
+
+	void	signForm(Form& src) const;
 
 private:
 	const std::string	_name;
