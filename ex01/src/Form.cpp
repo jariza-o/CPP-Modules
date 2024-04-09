@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:30 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/09 17:38:13 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:49:33 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Form::Form(int signGrade, int execGrade) : _name("void"), _signGrade(signGrade),
 		if (signGrade < 1)
 			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
 		else if (signGrade > 150)
-			throw GradeTooHighException(); // Despues del throw pasa al catch directamente
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
 		std::cout << e.whate() << std::endl;
@@ -43,7 +43,7 @@ Form::Form(int signGrade, int execGrade) : _name("void"), _signGrade(signGrade),
 	}
 	try {
 		if (execGrade < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (execGrade > 150)
 			throw GradeTooHighException();
 	}
@@ -62,9 +62,9 @@ Form::Form(std::string name, int signGrade) : _name(name), _signGrade(signGrade)
 	this->_sign = false;
 	try {
 		if (signGrade < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (signGrade > 150)
-			throw GradeTooHighException(); // Despues del throw pasa al catch directamente
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
 		std::cout << e.whate() << std::endl;
@@ -81,9 +81,9 @@ Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _signG
 	this->_sign = false;
 	try {
 		if (signGrade < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (signGrade > 150)
-			throw GradeTooHighException(); // Despues del throw pasa al catch directamente
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
 		std::cout << e.whate() << std::endl;
@@ -95,7 +95,7 @@ Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _signG
 	}
 	try {
 		if (execGrade < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (execGrade > 150)
 			throw GradeTooHighException();
 	}
@@ -139,9 +139,9 @@ Form&	Form::operator=(const Form& src) {
 		this->_sign = src.getSign();
 	try {
 		if (src.getSignGrade() < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (src.getSignGrade() > 150)
-			throw GradeTooHighException(); // Despues del throw pasa al catch directamente
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
 		std::cout << e.whate() << std::endl;
@@ -153,7 +153,7 @@ Form&	Form::operator=(const Form& src) {
 	}
 	try {
 		if (src.getExecGrade() < 1)
-			throw GradeTooLowException(); // Despues del throw pasa al catch directamente
+			throw GradeTooLowException();
 		else if (src.getExecGrade() > 150)
 			throw GradeTooHighException();
 	}
