@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/09 17:59:28 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/10 20:18:06 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ public:
 	};
 
 	bool	beSigned(const Bureaucrat& src);
+
+	void	execute(Bureaucrat const & executor) const = 0;
 
 private:
 	const std::string	_name;

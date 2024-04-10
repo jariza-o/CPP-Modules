@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:44:36 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/09 17:58:59 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/10 20:17:06 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ public:
 	};
 
 	void	signForm(AForm& src) const;
+
+	void	executeForm(AForm const & form);
 
 private:
 	const std::string	_name;
