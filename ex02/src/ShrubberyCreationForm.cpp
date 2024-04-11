@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 20:25:23 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/10 21:42:36 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:18:07 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src) {
-	
+	std::cout << "ShrubberyCreationForm Equal Operator called." << std::endl;
+	if (this != &src) {
+		this->_target = src.getTarget();
+		this->setSign(src.getSign());
+	}
+	return *this;
 }
 
 void	ShrubberyCreationForm::action() const {
 	std::string filename = this->_target; // A LO MEJOR SE PUEDE AÑADIR AQUI CON + _shuberry
 	filename.append("_shubbery");
-	std::ofstream file(filename);
+	std::ofstream file(filename.c_str());
 
 	if (file.is_open()) {
 		file << "      ^\n";
@@ -56,4 +61,8 @@ void	ShrubberyCreationForm::action() const {
 		file.close();
 	} else
 		std::cout << "Unable to open the file";
+}
+
+std::string	ShrubberyCreationForm::getTarget() const {
+	return this->_target;
 }

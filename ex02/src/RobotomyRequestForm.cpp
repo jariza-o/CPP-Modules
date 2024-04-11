@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:40:34 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/10 21:45:42 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:56:27 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,19 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& src) {
-	
+	std::cout << "RobotomyRequestForm Equal Operator called." << std::endl;
+	if (this != &src) {
+		this->_target = src.getTarget();
+		this->setSign(src.getSign());
+	}
+	return *this;
 }
 
 void	RobotomyRequestForm::action() const {
 	std::cout << "Drilling Noises (guarrito a la hora la siesta): guuuuuooooooooooooooonguuuuuooooooooooooooonguuuuuooooooooooooooon" << std::endl;
 	//COMO SE HACE LO DEL 50%
+}
+
+std::string	RobotomyRequestForm::getTarget() const {
+	return this->_target;
 }

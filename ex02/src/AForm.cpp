@@ -197,3 +197,32 @@ std::ostream&	operator<<(std::ostream& o, const AForm& src) {
 	o << src.getName() << ", is signed " << isSigned << ", Sign Grade " << src.getSignGrade() << ", Exec Grade " << src.getExecGrade() << "." << std::endl;
 	return o;
 }
+
+void	AForm::setSign(bool Sign) {
+	this->_sign = Sign;
+}
+
+bool	AForm::execute(Bureaucrat const & executor) const {
+	try {
+		if (!this->_sign)
+			throw FormNotSignedException();
+		if (this->_execGrade < executor.getGrade())
+			throw GradeToHighException();
+	}
+	catch(const FormNotSignedException& e) {
+		std::cout << e.whate() << std::endl;
+		return false;
+	}
+	catch(const GradeToHighException& e) {
+		std::cout << e.whate() << std::endl;
+		return false;
+	}
+	return true;
+}
+const char* AForm::FormNotSignedException::whate() const throw() {
+	return "The Form isn't signed.";
+}
+
+const char* AForm::GradeToHighException::whate() const throw() {
+	return "The Executor grade is low.";
+}

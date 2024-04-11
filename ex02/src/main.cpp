@@ -6,30 +6,42 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:21:50 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/09 18:00:13 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:16:01 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
 
 int	main() {
 
-	AForm a(149, 4);
-	AForm b(1, 200);
-	AForm c("pepe", 1, 3);
-	AForm d = a;
+	Bureaucrat  bob("Bob", 42);
+    Bureaucrat  jim("Jim", 5);
 
-	std::cout << "THE NAME IS: " << b.getName() << std::endl;
-	std::cout << "THE NAME IS: " << c.getName() << std::endl;
+    PresidentialPardonForm  presi("Miles");
+    RobotomyRequestForm     robot("Miles");
+    ShrubberyCreationForm   tree("Miles");
 
-	Bureaucrat	buro("Andrés", 2);
-	buro.signForm(c);
 
-	buro.incrementGrade();
-	buro.signForm(c);
+    std::cout << bob << jim;
+    std::cout << presi << robot << tree << std::endl;
+    
+    bob.executeForm(presi);
+    jim.executeForm(presi);
+    bob.signForm(presi);
+    jim.signForm(presi);
+    bob.executeForm(presi);
+    jim.executeForm(presi);
 
-	std::cout << "Form: " << b << std::endl;
+    jim.signForm(robot);
+    jim.executeForm(robot);
+    jim.signForm(tree);
+    jim.executeForm(tree);
 
-	return 0;
+    std::cout << presi << robot << tree << std::endl;
+
+    return 0;
 }

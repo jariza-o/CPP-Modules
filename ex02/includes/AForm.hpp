@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/10 20:18:06 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:56:00 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,19 @@ public:
 
 	bool	beSigned(const Bureaucrat& src);
 
-	void	execute(Bureaucrat const & executor) const = 0;
+	virtual void	action() const = 0;
+	bool			execute(Bureaucrat const & executor) const;
+
+	void	setSign(bool Sign);
+
+	class FormNotSignedException : public std::exception {
+		public:
+            virtual const char* whate() const throw();
+	};
+	class GradeToHighException : public std::exception {
+		public:
+            virtual const char* whate() const throw();
+	};
 
 private:
 	const std::string	_name;

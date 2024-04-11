@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 19:58:06 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/10 21:46:36 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:11:18 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_H
 
 #include "./AForm.hpp"
+#include "./Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -26,7 +27,9 @@ public:
 
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
 
-	void action() const;
+	void	action() const;
+
+	std::string	getTarget() const;
 
 private:
 	std::string _target; //tiene que ser const??

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:47:06 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/10 21:49:21 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:57:26 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,18 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& src) {
-	
+	std::cout << "PresidentialPardonForm Equal Operator called." << std::endl;
+	if (this != &src) {
+		this->_target = src.getTarget();
+		this->setSign(src.getSign());
+	}
+	return *this;
 }
 
 void	PresidentialPardonForm::action() const {
 	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+std::string	PresidentialPardonForm::getTarget() const {
+	return this->_target;
 }
