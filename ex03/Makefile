@@ -6,13 +6,14 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/02 17:07:46 by jariza-o          #+#    #+#              #
-#    Updated: 2024/04/11 18:16:54 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/04/12 12:39:56 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
 
-SRC		=	src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp src/ShrubberyCreationForm.cpp \
+SRC		=	src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp \
+			src/ShrubberyCreationForm.cpp src/Intern.cpp\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o)) # addprefix añade a cada archivo .o el obj/
 
