@@ -15,51 +15,14 @@
 #include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/Intern.hpp"
 
 int	main() {
+	Intern	random();
+	AForm*	form();
 
-	std::cout << "TESTS CONSTRUCTORS" << std::endl;
-	Bureaucrat  bob("Bob", 42);
-	Bureaucrat  jim("Jim", 5);
-	Bureaucrat  charly("Charly", 146);
 
-	PresidentialPardonForm  presi("Miles");
-	RobotomyRequestForm     robot("Miles");
-	ShrubberyCreationForm   tree("Miles");
-
-	std::cout << std::endl << std::endl;
-	std::cout << "TESTS OPERATOR <<" << std::endl;
-	std::cout << bob << jim;
-	std::cout << presi << robot << tree << std::endl;
-	std::cout << std::endl << std::endl;
-
-	std::cout << "TESTS ACTIONS <<" << std::endl;
-	bob.executeForm(presi);
-	jim.executeForm(presi);
-	std::cout << std::endl;
+	form = random.makeForm("robotomy request", "Bender");
 	
-	bob.signForm(presi);
-	jim.signForm(presi);
-	std::cout << std::endl;
-	
-	bob.executeForm(presi);
-	jim.executeForm(presi);
-	std::cout << std::endl;
-	
-	jim.signForm(robot);
-	jim.executeForm(robot);
-	jim.signForm(tree);
-	jim.executeForm(tree);
-	std::cout << std::endl;
-
-	charly.signForm(robot);
-	charly.executeForm(robot);
-	charly.signForm(tree);
-	charly.executeForm(tree);
-	std::cout << std::endl;
-
-	std::cout << presi << robot << tree << std::endl;
-	std::cout << std::endl << std::endl;
-
 	return 0;
 }
