@@ -178,7 +178,7 @@ const char*	AForm::GradeTooLowException::whate() const throw() {
 
 bool	AForm::beSigned(const Bureaucrat& src) {
 	try {
-		if ((this->_signGrade < 1 || this->_signGrade > 150) || (src.getGrade() > this->_signGrade) || this->_sign == true)
+		if ((this->_signGrade < 1 || this->_signGrade > 150) || (src.getGrade() < this->_signGrade) || this->_sign == true) // COMPARACION < cambiada
 			throw std::exception();
 		this->_sign = true;
 		return true;
@@ -206,7 +206,7 @@ bool	AForm::execute(Bureaucrat const & executor) const {
 	try {
 		if (!this->_sign)
 			throw FormNotSignedException();
-		if (this->_execGrade < executor.getGrade())
+		if (this->_execGrade > executor.getGrade())
 			throw GradeToHighException();
 	}
 	catch(const FormNotSignedException& e) {

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 20:32:28 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/11 21:13:04 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/12 08:56:39 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ std::ostream&	operator<<( std::ostream& o, const Bureaucrat& src ) {
 void	Bureaucrat::signForm(AForm& src) const {
 	if (this->_grade < src.getSignGrade())
 		std::cout << this->_name << " couldn’t sign " << src.getName() << " because Bureaucrat Grade is more lower that Form SignGrade." << std::endl;
-	else if (!src.beSigned(*this)){
+	else if (src.beSigned(*this)){
 		src.setSign(true);
 		std::cout << this->_name << " signed " << src.getName() << "." << std::endl;
 	}
