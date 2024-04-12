@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 09:28:31 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/12 12:47:55 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:36:48 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,15 @@ public:
 
 	class RobotomyException : public std::exception {
 		public:
-            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw() 
-
+            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw()
 	};
 	class ShurubberyException : public std::exception {
 		public:
-            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw() 
-
+            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw()
 	};
 	class PresidentialException : public std::exception {
 		public:
-            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw() 
-
+            virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw()
 	};
 private:
 	AForm* _form;

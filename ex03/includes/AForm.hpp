@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:03 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/11 17:56:00 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:38:24 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ public:
 	AForm(std::string name);
 	AForm(int signGrade, int execGrade);
 	AForm(std::string name, int signGrade);
-	AForm(std::string name, int signGrade, int execGrade); // NOSE SI LOS GETTERS ESTAN GUAYS YA QUE NO SE SI LOS GRADE SON ESOS
+	AForm(std::string name, int signGrade, int execGrade);
 	AForm(const AForm& src);
-	~AForm();
+	virtual ~AForm(); // es virtual porque como se pasa por puntero en Intern, tiene que ser asi para el delete
 
 	AForm&	operator=(const AForm& src);
 	
@@ -40,7 +40,6 @@ public:
 		public:
             virtual const char* whate() const throw();
 	};
-
 	class GradeTooLowException : public std::exception {
 		public:
             virtual const char* whate() const throw();

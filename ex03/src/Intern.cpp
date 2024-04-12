@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 09:28:51 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/12 12:49:11 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:36:07 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ Intern::Intern() {
 Intern::Intern(const Intern& src) {
 	std::cout << "Intern Copy Constructor called." << std::endl;
 	(void)src;
-	// if (this != &src){}
-		// AQUI QUE COPIO SI NO HAY NA QUE COPIAR
 }
 
 Intern::~Intern() {
 	std::cout << "Intern Destructor called." << std::endl;
+	// if (this->_form)
+	// 	delete this->_form;
 }
 
 Intern&	Intern::operator=(const Intern& src) {
 	std::cout << "Intern Equal Operator called." << std::endl;
 	(void)src;
-	// if (this != &src){}
-		// AQUI QUE COPIO SI NO HAY NA QUE COPIAR
 	return *this;
 }
 
