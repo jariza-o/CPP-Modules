@@ -6,11 +6,13 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 21:40:34 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/11 16:56:27 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:40:33 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RobotomyRequestForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {
 	std::cout << "RobotomyRequestForm Void Constructor called." << std::endl;
@@ -42,7 +44,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& s
 
 void	RobotomyRequestForm::action() const {
 	std::cout << "Drilling Noises (guarrito a la hora la siesta): guuuuuooooooooooooooonguuuuuooooooooooooooonguuuuuooooooooooooooon" << std::endl;
-	//COMO SE HACE LO DEL 50%
+	srand(time(NULL));
+	int i = rand() % 2;
+	if (i == 0)
+		std::cout << "Success" << std::endl;
+	else
+		std::cout << "Fail" << std::endl;
 }
 
 std::string	RobotomyRequestForm::getTarget() const {
