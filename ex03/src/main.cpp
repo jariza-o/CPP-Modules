@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:21:50 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/12 15:18:34 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:52:38 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/Intern.hpp"
+#include <stdexcept>
 
 int	main() {
 	std::cout << "TESTS CONSTRUCTORS" << std::endl;
@@ -44,6 +45,13 @@ int	main() {
 	std::cout << "TEST Wrong Input" << std::endl;
 	delete robot;
 	robot = random.makeForm("shurubbere request", "Bender");
+	try {
+		if (robot == NULL)
+			throw std::exception();
+		robot->execute(Jimmy);
+	} catch(const std::exception& e) {
+		std::cout << "MAKEFORM FAIL!!!!!!" << std::endl;
+	}
 	std::cout << std::endl << std::endl;
 
 	delete presi;
