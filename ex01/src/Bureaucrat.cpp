@@ -46,6 +46,12 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 	return ;
 }
 
+Bureaucrat::Bureaucrat( const Bureaucrat& src ) : _name(src.getName()) {
+	std::cout << "Bureaucrat Copy Constructor called." << std::endl;
+	if (this != &src)
+		*this = src.getGrade();
+}
+
 Bureaucrat::~Bureaucrat() {
 	std::cout << "Bureaucrat Destructor called." << std::endl;
 }
@@ -94,6 +100,13 @@ const char*	Bureaucrat::GradeTooLowException::whate() const throw() {
 std::ostream&	operator<<( std::ostream& o, const Bureaucrat& src ) {
 	o << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
 	return o;
+}
+
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& src){
+	std::cout << "Bureaucrat Operator Equal called." << std::endl;
+	if (this != &src)
+		this->_grade = src.getGrade();
+	return *this;
 }
 
 void	Bureaucrat::signForm(Form& src) const {

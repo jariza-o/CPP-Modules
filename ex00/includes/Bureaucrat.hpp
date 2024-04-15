@@ -22,13 +22,16 @@ public:
 	Bureaucrat( std::string name );
 	Bureaucrat( int grade );
 	Bureaucrat( std::string name, int grade );
+	Bureaucrat(const Bureaucrat& src);
 	~Bureaucrat();
 
 	std::string	getName() const;
 	int			getGrade() const;
 	void		incrementGrade();
 	void		decrementGrade();
-	
+
+	Bureaucrat&	operator=(const Bureaucrat& src);
+
 	class GradeTooHighException : public std::exception {
 		public:
             virtual const char* whate() const throw(); // Funcion que pertenece a exception, y que declara la excepcion con el throw() 
