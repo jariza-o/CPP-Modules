@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:28:43 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/15 16:35:20 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/16 15:35:33 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ScalarConverter {
 public:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& src);
+	ScalarConverter(char* str);
 	~ScalarConverter();
 
 	ScalarConverter&	operator=(const ScalarConverter& src);
