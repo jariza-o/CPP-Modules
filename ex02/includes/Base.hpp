@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:08:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 17:10:01 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:32:47 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class Base {
 public:
-    ~Base();
+	virtual ~Base();
 };
 
 #endif
