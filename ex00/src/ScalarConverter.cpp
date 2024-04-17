@@ -6,14 +6,14 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:28:40 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 13:37:08 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:58:19 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScalarConverter.hpp"
 #include <cmath>
 #include <stdio.h>
-#include <cstdlib>
+#include <stdlib.h>
 #include <cfloat>
 #include <stdexcept>
 
@@ -23,7 +23,8 @@ ScalarConverter::ScalarConverter() {
 
 ScalarConverter::ScalarConverter(const ScalarConverter& src) {
 	// std::cout << "ScalaConverter Copy Constructor called." << std::endl;
-	(void)src;
+	if (this != &src)
+		this->_type = src._type;
 }
 
 ScalarConverter::~ScalarConverter() {
@@ -33,17 +34,19 @@ ScalarConverter::~ScalarConverter() {
 
 ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& src) {
 	// std::cout << "ScalaConverter Equal Operator called." << std::endl;
-	(void)src;
+	if (this != &src)
+		this->_type = src._type;
 	return *this;
 }
 
 void	ScalarConverter::convert(std::string src) {
 	std::string	vChar;
-	int			vInt = 0;
+	long long	vInt = 0;
 	float		vFloat = 0.0f;
 	double		vDouble = 0.0;
 
-	this->_type = this->checkArgument(src);
+	this->_type = this->_checkArgument(src);
+	std::cout << this->_type << std::endl;
 	if (this->_type == 4) {
 		vChar = "impossible";
 		vFloat = std::sqrt(-1);
@@ -72,9 +75,9 @@ void	ScalarConverter::convert(std::string src) {
 	}
 	else if (this->_type == 1) { // FALTA POR COMPROBAR MAX Y MIN
 		vChar = "Non displayable";
-		vInt = atoi(src.c_str());
-		if (vFloat < INT_MAX || vFloat > INT_MIN) {
-				throw std::out_of_range("The number isn't in the correct range");
+		vInt = atol(src.c_str());
+		if (vInt > INT_MAX || vInt < INT_MIN) {
+				throw std::out_of_range("The INT isn't in the correct range");
 			}
 		vFloat = static_cast<float>(vInt);
 		vDouble = static_cast<double>(vInt);
@@ -103,14 +106,17 @@ void	ScalarConverter::convert(std::string src) {
 			}
 		}
 		std::cout << "char: " << vChar << std::endl;
-		std::cout << "int: " << vInt << std::endl;
+		if ((vFloat < INT_MIN || vFloat > INT_MAX) || (vDouble < INT_MIN || vDouble > INT_MAX))
+			std::cout << "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << vInt << std::endl;
 		std::cout << "float: " << vFloat<< "f" << std::endl;
 		std::cout << "double: " << vDouble << std::endl;
 	}
 
 }
 
-int	ScalarConverter::checkArgument(std::string src) {
+int	ScalarConverter::_checkArgument(std::string src) {
 	int	type = 0;
 	int	aux = 0;
 
@@ -125,7 +131,7 @@ int	ScalarConverter::checkArgument(std::string src) {
 			type = 3;
 			aux = 1;
 		}
-		else if (src[i] == 'f' && src[i + 1] == '\0' && aux == 1) // un float entero creo que tiene que ser 42.0f, si no necesita el .0 añadir que si es int tamb entre
+		else if ((src[i] == 'f' || src[i] == 'F') && src[i + 1] == '\0' && aux == 1) // un float entero creo que tiene que ser 42.0f, si no necesita el .0 añadir que si es int tamb entre
 			return 2;
 		else 
 			return 0;
