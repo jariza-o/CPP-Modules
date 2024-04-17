@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 15:31:45 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 17:05:32 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/04/17 17:08:35 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/04/17 17:10:01 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_H
-# define SERIALIZER_H
+#ifndef BASE_H
+# define BASE_H
 
-#include <stdint.h>
-#include "Data.hpp"
-
-class Serializer {
+class Base {
 public:
-	Serializer();
-	Serializer(const Serializer& src);
-	~Serializer();
-
-	Serializer&	operator=(const Serializer& src);
-	
-	static uintptr_t	serialize(Data* ptr);
-	static Data*		deserialize(uintptr_t raw);
+    ~Base();
 };
 
 #endif
