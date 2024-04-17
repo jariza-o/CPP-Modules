@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:28:40 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 08:28:09 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:37:08 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <cfloat>
+#include <stdexcept>
 
 ScalarConverter::ScalarConverter() {
 	// std::cout << "ScalaConverter Void Constructor called." << std::endl;
@@ -43,7 +44,6 @@ void	ScalarConverter::convert(std::string src) {
 	double		vDouble = 0.0;
 
 	this->_type = this->checkArgument(src);
-	std::cout << "TYPE: " << this->_type << std::endl;
 	if (this->_type == 4) {
 		vChar = "impossible";
 		vFloat = std::sqrt(-1);
@@ -73,6 +73,9 @@ void	ScalarConverter::convert(std::string src) {
 	else if (this->_type == 1) { // FALTA POR COMPROBAR MAX Y MIN
 		vChar = "Non displayable";
 		vInt = atoi(src.c_str());
+		if (vFloat < INT_MAX || vFloat > INT_MIN) {
+				throw std::out_of_range("The number isn't in the correct range");
+			}
 		vFloat = static_cast<float>(vInt);
 		vDouble = static_cast<double>(vInt);
 		std::cout << "char: " << vChar << std::endl;
@@ -90,13 +93,13 @@ void	ScalarConverter::convert(std::string src) {
 		// 	return ;
 		// }
 		if (vFloat < -DBL_MAX || vFloat > DBL_MAX) {
-			 throw std::out_of_range("The namber isnt in the correct range");
+			 throw std::out_of_range("The number isn't in the correct range");
 		}
 		vInt = static_cast<int>(vDouble);
 		vFloat = static_cast<float>(vDouble);
 		if (this->_type == 2) {
 			if (vFloat < -FLT_MAX || vFloat > FLT_MAX) {
-				throw std::out_of_range("The namber isnt in the correct range");
+				throw std::out_of_range("The number isn't in the correct range");
 			}
 		}
 		std::cout << "char: " << vChar << std::endl;
