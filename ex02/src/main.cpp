@@ -27,7 +27,7 @@ Base* generate(void) {
 
 	if (i == 1){
 		std::cout << "Type A Generated." << std::endl;
-		Base* basePtr = new A();
+		Base* basePtr = new A(); // Para crear algo como otra cosa se usa new
 		return basePtr;
 	}
 	else if (i == 2) {
@@ -55,7 +55,7 @@ void identify(Base* p) {
 void identify(Base& p) {
 	if (A* a = dynamic_cast<A*>(&p)) {
 		std::cout << "& Type: A" << std::endl;
-	} else if (B* b = dynamic_cast<B*>(&p)) {
+	} else if (B* b = dynamic_cast<B*>(&p)) { // dynamic_cast permite verificar el tipo real del objeto en tiempo de ejecución cuando existe poliformismo
 		std::cout << "& Type: B" << std::endl;
 	} else if (C* c = dynamic_cast<C*>(&p)) {
 		std::cout << "& Type: C" << std::endl;
@@ -67,4 +67,6 @@ int	main() {
 
 	identify(a);
 	identify(*a);
+
+	delete a; // NO ESTA PROBADO PERO DEBERÏA DE ESTAR 
 }
