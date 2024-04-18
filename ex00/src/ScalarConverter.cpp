@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:28:40 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 15:58:19 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:37:49 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,13 @@ void	ScalarConverter::convert(std::string src) {
 	double		vDouble = 0.0;
 
 	this->_type = this->_checkArgument(src);
-	std::cout << this->_type << std::endl;
-	if (this->_type == 4) {
+	if (this->_type == 6) {
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float :" << "impossible" << std::endl;
+		std::cout << "double: " << "impossible" << std::endl;
+	}
+	else if (this->_type == 4) {
 		vChar = "impossible";
 		vFloat = std::sqrt(-1);
 		vDouble = std::sqrt(-1);
@@ -63,17 +68,21 @@ void	ScalarConverter::convert(std::string src) {
 		vDouble = 1.0 / 0.0;
 		std::cout << "char: " << vChar << std::endl;
 		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << vFloat<< "f" << std::endl;
+		std::cout << "float: " << vFloat << "f" << std::endl;
 		std::cout << "double: " << vDouble << std::endl;
 		return ;
 	}
 	else if (this->_type == 0) {
-		vChar = "impossible";
-		vInt = 2;
-		vFloat = std::sqrt(-1);
-		vDouble = std::sqrt(-1);
+		vChar = src;
+		vInt = static_cast<int>(vChar[0]);
+		vFloat = static_cast<float>(vInt);
+		vDouble = static_cast<double>(vInt);
+		std::cout << "char: " << vChar << std::endl;
+		std::cout << "int: " << vInt << std::endl;
+		std::cout << "float :" << vFloat << ".0f" << std::endl;
+		std::cout << "double: " << vDouble << ".0" << std::endl;
 	}
-	else if (this->_type == 1) { // FALTA POR COMPROBAR MAX Y MIN
+	else if (this->_type == 1) {
 		vChar = "Non displayable";
 		vInt = atol(src.c_str());
 		if (vInt > INT_MAX || vInt < INT_MIN) {
@@ -83,8 +92,8 @@ void	ScalarConverter::convert(std::string src) {
 		vDouble = static_cast<double>(vInt);
 		std::cout << "char: " << vChar << std::endl;
 		std::cout << "int: " << vInt << std::endl;
-		std::cout << "float: " << vFloat<< ".0f" << std::endl;
-		std::cout << "double: " << vDouble << std::endl;
+		std::cout << "float: " << vFloat << ".0f" << std::endl;
+		std::cout << "double: " << vDouble << ".0" << std::endl;
 	}
 	else if (this->_type == 2 || this->_type == 3) { // FALTA POR COMPROBAR MAX Y MIN
 		vChar = "'*'";
@@ -133,8 +142,10 @@ int	ScalarConverter::_checkArgument(std::string src) {
 		}
 		else if ((src[i] == 'f' || src[i] == 'F') && src[i + 1] == '\0' && aux == 1) // un float entero creo que tiene que ser 42.0f, si no necesita el .0 añadir que si es int tamb entre
 			return 2;
-		else 
+		else if (src[i + 1] == '\0' && i == 0)
 			return 0;
+		else
+			return 6;
 	}
 	if (type == 1 && aux == 1)
 		return 3;
