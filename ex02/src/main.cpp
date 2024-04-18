@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:11:21 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/17 18:52:09 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:30:21 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int	main() {
 	identify(a);
 	identify(*a);
 
-	delete a; // NO ESTA PROBADO PERO DEBERÏA DE ESTAR 
+	delete a;
 }
