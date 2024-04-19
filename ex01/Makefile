@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/19 13:37:44 by jariza-o          #+#    #+#              #
-#    Updated: 2024/04/19 16:13:11 by jariza-o         ###   ########.fr        #
+#    Created: 2024/04/19 16:15:27 by jariza-o          #+#    #+#              #
+#    Updated: 2024/04/19 16:34:20 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC		=	src/main.cpp \
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
-NAME	=	Functions
+NAME	=	Iter
 
 all:	$(NAME)
 $(NAME): ${OBJ}

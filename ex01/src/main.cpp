@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 13:43:37 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/19 16:11:03 by jariza-o         ###   ########.fr       */
+/*   Created: 2024/04/19 16:27:44 by jariza-o          #+#    #+#             */
+/*   Updated: 2024/04/19 16:44:50 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/whatever.hpp"
-#include <iostream>
+#include "../includes/iter.hpp"
 
-int	main ( void ) {
-	int a = 2;
-	int b = 3;
+void	toUppercase(char letter) {
+	
+	if (letter >= 'A' && letter <= 'Z')
+		std::cout << "The letter is Uppercase: " << letter << "." << std::endl;
+	else{
+		char l = static_cast<char>(std::toupper(static_cast<unsigned char>(letter)));
+		std::cout << "The letter in Uppercase is: " << l << "." << std::endl;
+	}
+	
+}
 
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-
-	return 0;
+int	main () {
+	toUppercase('A');
+	
+	char a[] =  {'a', 'B', 'c', 'd'};
+	
+	::iter(a, 4, toUppercase);
 }
