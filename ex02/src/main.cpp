@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:07:54 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/20 15:33:47 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:16:52 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@ int	main() {
 	
 	Array<std::string>	a;
 	Array<std::string>	a2(10);
-	Array<int>	b(7);
-	// Array	c(b);
 
+	Array<int>	i;
+	Array<int>	i2(7);
+	Array<int>	i3(i2);
+
+	a2[0] = "ES 0";
+	try {
+		a2[9] = "ES 9";
+		a2[10] = "ES 10";
+	} catch (const std::exception& e) {
+		std::cout << "TEST" << std::endl;
+	}
+	i = i2 ;
 	a = a2;
-	a[0] = "ES 0";
-	a[9] = "ES 10";
 	try {
 		for (int i = 0; i < a.size(); i++) {
 			std::cout << a.getData(i) << std::endl;
@@ -41,4 +49,8 @@ int	main() {
 	} catch (const std::exception& e) {
 		std::cout << "Array void" << std::endl;
 	}
+	
+	i3[6] = 9;
+	std::cout << "i3[6] es: " << i3[6] << "." << std::endl;
+
 }
