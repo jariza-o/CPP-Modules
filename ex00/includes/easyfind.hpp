@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:11:53 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/22 19:25:14 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:15:17 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 # define EASYFIND_H
 
 #include <iostream>
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
 
 template<typename T>
-int	easyfind(T src, int i) {
-	for (int j; T[j]; j++) {
-		if (T[j] == i)
-			return 1;
-	}
-	throw std::exception("Valor Not Founded");
-}
+void	easyfind(const T& src, int i);
+
+class	NotFounded : public std::exception {
+	public:
+		const char* what() const throw();
+};
+
+#include "./easyfind.tpp"
 
 #endif
