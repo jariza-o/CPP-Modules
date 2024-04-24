@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:22:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/24 21:10:54 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:10:24 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,35 @@ Span&	Span::operator=(const Span& src) {
 }
 
 void	Span::addNumber(int singleNumber) {
+	try {
+		if (this->_vector.size() > this->_N)
+			throw VectorFull();
+		this->_vector.push_back(singleNumber);
+	}
+	catch (const VectorFull& e) {
+		std::cout << e.what() << std::endl;
+	}
 	
 }
 
 void	Span::shortestSpan() {
-	
+	try {
+		if (this->_vector.size () <= 1 || this->_N <= 1) // No sé si quitar la del vector
+			throw VectorEmpty();
+	}
+	catch (const VectorEmpty& e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void	Span::longestSpan() {
 	
+}
+
+const char*	Span::VectorFull::what() const throw() {
+	return "The Vector is FULL.";
+}
+
+const char*	Span::VectorEmpty::what() const throw() {
+	return "The Vector only have 1 or 0 elements.";
 }
