@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:44:22 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/24 22:04:09 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:51:33 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,22 @@ public:
 
 	void	addNumber(int singleNumber);
 
-	void	shortestSpan();
-	void	longestSpan();
+	int		shortestSpan();
+	int		longestSpan();
 
 	class VectorFull : public std::exception {
+	public:
 		const char* what() const throw();
 	};
 
 	class VectorEmpty : public std::exception {
+	public:
 		const char* what() const throw();
 	};
 
 private:
 	std::vector<int>	_vector;
-	const unsigned int	_N;
+	unsigned int	_N;
 };
 
 #endif
