@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:53:39 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/25 17:40:44 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:47:36 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,11 @@ int	main() {
 
 /* 10000 TEST */
 	Span	sp2(10000);
-	int	n[10000];
+	int		n[10000];
 
 	setNumbers(n);
 	for (int i = 0; i < 10000; ++i)
 		sp2.addNumber(n[i]);
-
 	std::cout << sp2.shortestSpan() << std::endl;
 	std::cout << sp2.longestSpan() << std::endl;
 

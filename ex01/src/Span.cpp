@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:22:35 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/25 16:51:27 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:43:19 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,15 @@ int	Span::longestSpan() {
 		std::cout << e.what() << std::endl;
 	}
 	return -1;
+}
+
+void	Span::printVector() {
+	std::vector<int>::iterator it = this->_vector.begin();
+		std::vector<int>::iterator itl = this->_vector.end();
+		std::sort(it, itl);
+		for(; it != itl; ++it)
+			std::cout << *it << " ";
+		std::cout << std::endl;
 }
 
 const char*	Span::VectorFull::what() const throw() {

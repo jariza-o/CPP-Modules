@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:44:22 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/25 16:51:33 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:42:38 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ public:
 
 	int		shortestSpan();
 	int		longestSpan();
+
+	void	printVector();
 
 	class VectorFull : public std::exception {
 	public:
