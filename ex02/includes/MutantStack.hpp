@@ -14,15 +14,25 @@
 # define MUTANSTACK_H
 
 #include <stack>
+#include <iostream>
 
 template<typename T>
 class MutantStack {
 public:
-	MutantStack();
-	MutantStack(const MutantStack& src);
-	~MutantStack();
+	MutantStack() {
+		std::cout << "MutanStack Void Constructor called." << std::endl;
+	}
+	MutantStack(const MutantStack& src) {
+		std::cout << "MutanStack Copy Constructor called." << std::endl;
+	}
+	~MutantStack() {
+		std::cout << "MutanStack Destructor called." << std::endl;
+	}
 
-	MutantStack&	operator=(const MutantStack& src);
+	MutantStack&	operator=(const MutantStack& src) {
+		std::cout << "MutanStack Equal Operator called." << std::endl;
+
+	}
 
 private:
 	std::stack	_stack;
