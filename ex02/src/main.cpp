@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:59:04 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/25 18:00:43 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:06:43 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,22 @@ int main() {
 		++it;
 	}
 	std::stack<int> s(mstack);
+	
+	std::cout << std::endl<< std::endl;
+	/* Mis TEST */
+	
+	MutantStack<int> mstack2;
+	
+	mstack2 = mstack;
+	MutantStack<int>::iterator it2 = mstack2.begin();
+	MutantStack<int>::iterator ite2 = mstack2.end();
+
+	++it2;
+	--it2;
+	while (it2 != ite2) {
+		std::cout << *it2 << std::endl;
+		++it2;
+	}
+
 	return 0;
 }
