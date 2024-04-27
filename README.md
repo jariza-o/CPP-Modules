@@ -24,4 +24,6 @@ In this brunch you can see the code from the Intra E-learning recourses.
 ## Second Part
 5. **[CPP05](https://github.com/jariza-o/CPP-Modules/tree/cpp05)**
 6. **[CPP06](https://github.com/jariza-o/CPP-Modules/tree/cpp06)**
-7. **[CPP08](https://github.com/jariza-o/CPP-Modules/tree/cpp07)**
+7. **[CPP07](https://github.com/jariza-o/CPP-Modules/tree/cpp07)**
+8. **[CPP08](https://github.com/jariza-o/CPP-Modules/tree/cpp08)**
+9. **[CPP09](https://github.com/jariza-o/CPP-Modules/tree/cpp09)**
