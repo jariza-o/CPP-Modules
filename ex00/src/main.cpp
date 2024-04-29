@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:17:01 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/27 15:35:23 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:13:59 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ bool	inputDB(BitcoinExchange& ex, std::ifstream&	data) {
 		std::cout << "The first line in the DataBase is incorrect. The correct format is \"date,exchange_rate\"." << std::endl;
 		return 0;
 	}
-	std::string	date;
-	int			value;
+	char	date[10];
+	float	value;
+	char	remaining[10];
 	for(; std::getline(data, line);) {
-		if (std::scanf(line.c_str(), "%10s%i", &date, &value) == 2){
+		if (std::scanf(line.c_str(), "%10[^,],%f%9s", date, &value, remaining) == 2){
 			
 		}
 		else
