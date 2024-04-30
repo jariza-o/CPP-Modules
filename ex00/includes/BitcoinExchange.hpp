@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:19:43 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/04/27 14:28:47 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:12:02 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ public:
 	~BitcoinExchange();
 
 	BitcoinExchange&	operator=(const BitcoinExchange& src);
+
+	void							insertMap(std::pair<std::string, int> miPar);
+	std::map<std::string, float>&	getMap();
+	void							printValues();
 
 private:
 	std::map<std::string, float>	_container;
