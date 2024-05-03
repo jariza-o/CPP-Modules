@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:19:43 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/02 15:45:32 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:52:09 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	void							insertMap();
 	std::map<std::string, double>&	getMap();
 	void							printValues();
+	void							programUse(std::string date, double value) const;
 
 private:
 	std::map<std::string, double>	_container;

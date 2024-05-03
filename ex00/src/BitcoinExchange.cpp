@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:28:58 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/02 16:28:44 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:19:21 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	BitcoinExchange::insertMap() {
 		this->_container.insert(miPar);
 	}
 	data.close();
-	this->printValues();
 }
 
 std::map<std::string, double>&	BitcoinExchange::getMap() {
@@ -67,5 +66,24 @@ std::map<std::string, double>&	BitcoinExchange::getMap() {
 void	BitcoinExchange::printValues() {
 	for (std::map<std::string, double>::const_iterator iter = this->_container.begin(); iter != this->_container.end(); ++iter) {
 		std::cout << iter->first << ": " << iter->second << std::endl;
+	}
+}
+
+void	BitcoinExchange::programUse(std::string date, double value) const {
+	std::map<std::string, double>::const_iterator iter = this->_container.begin();
+	for (; iter != this->_container.end(); iter++) {
+		if (iter->first == date) {
+			std::cout << date << " => " << value << " = " << iter->second*value << std::endl;
+			return ;
+		}
+		else if (iter->first > date && iter == this->_container.begin()) {
+			std::cout << "ERROR: The first database value is later than the input value." << std::endl;
+			return ;
+		}
+		else if (iter->first > date) {
+			iter--;
+			std::cout << date << " => " << value << " = " << iter->second*value << std::endl;
+			return ;
+		}
 	}
 }
