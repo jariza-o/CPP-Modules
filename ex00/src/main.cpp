@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:17:01 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/03 13:19:53 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:24:12 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,43 +44,38 @@ int	checkInput(std::string line) {
 	bool	decimal = false;
 	int		i = 0;
 	
-	if ((line[4] && line[7] != '-') || (line[10] && line[12] != ' ') || line[11] != '|') {
-		std::cout << "ewe" << std::endl;
+	if ((line[4] && line[7] != '-') || (line[10] && line[12] != ' ') || line[11] != '|')
 		return BadInput;
-	}
+	
+	{
 	while (line[i])
 		i++;
 	if (i <= 13)
 		return BadInput;
 	i = 0;
+	}
+	
 	while (line[i]) {
 		if ((i == 4 || i == 7 || (i >= 10 && i <= 12)))
 			i++;
 		if (i < 10) {
 			if (line[i] >= '0' && line[i] <= '9')
 				i++;
-			else {
-				std::cout << i << "           ddddd" << std::endl;
+			else
 				return BadInput;
-			}
 		}
 		else if (i > 12) {
 			if (((line[i] >= '0' && line[i] <= '9') || line[i] == '.')) {
 				if (line[i] == '.' && decimal == true)
-				{
-					std::cout << i << "fffff" << std::endl;
 					return BadInput;
-				}
 				else if (line[i] == '.' && decimal == false)
 					decimal = true;
 				i++;
 			}
 			else if (line[13] == '-')
 				return Negative;
-			else {
-				std::cout << i << "    wwwww" << std::endl;
+			else
 				return BadInput;
-			}
 		}
 	}
 	return 0;
