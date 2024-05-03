@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:28:58 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/03 13:19:21 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/03 22:12:24 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ BitcoinExchange::BitcoinExchange() {
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) {
-	(void)src;
+	if (this != &src)
+		this->_container = src._container;
 }
 
 BitcoinExchange::~BitcoinExchange() {
 	
 }
-#include <unistd.h>
+
 BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& src) {
 	if (this != &src)
 		*this = src;
