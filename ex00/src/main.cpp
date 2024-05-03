@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:17:01 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/03 13:24:12 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:48:21 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <climits>
+#include <stdlib.h>
 
 enum {
 	Negative = 1,
@@ -81,6 +82,37 @@ int	checkInput(std::string line) {
 	return 0;
 }
 
+bool	checkDates(std::string date) {
+	int	day, month, year;
+	std::string	str;
+
+	str = date.substr(5, 2);
+	month = atoi(str.c_str());
+	if (month <= 0 || month >= 13)
+		return false;
+	str = date.substr(8);
+	day = atoi(str.c_str());
+	str = date.substr(0, 4);
+	year = atoi(str.c_str());
+	if (day <= 0)
+		return false;
+	if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31)
+		return false;
+	else if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+		return false;
+	else if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)) {
+		std::cout << "NO DEBERIA ENTRAR" << std::endl;
+		if (day > 29)
+			return false;
+	}
+	else if (month == 2){
+		if (day > 28)
+			return false;
+	}
+	
+	return true;
+}
+
 bool	inputData(char	*path, BitcoinExchange&	ex) { (void)ex;
 	std::ifstream	data(path);
 	if (!data.is_open()) {
@@ -98,12 +130,16 @@ bool	inputData(char	*path, BitcoinExchange&	ex) { (void)ex;
 		if (failId == 0)
 		{
 			std::string	date = line.substr(0,10);
-			std::string	valueSTR = line.substr(13);
-			double		value = std::atof(valueSTR.c_str());
-			if (value > INT_MAX)
-				inputFails(TooLarge, "");
-			else{
-				ex.programUse(date, value);
+			if (!checkDates(date))
+				inputFails(BadInput, line);
+			else {
+				std::string	valueSTR = line.substr(13);
+				double		value = std::atof(valueSTR.c_str());
+				if (value > INT_MAX)
+					inputFails(TooLarge, "");
+				else{
+					ex.programUse(date, value);
+				}
 			}
 		}
 		else
