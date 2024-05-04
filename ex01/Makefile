@@ -6,11 +6,11 @@
 #    By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 22:15:12 by jariza-o          #+#    #+#              #
-#    Updated: 2024/05/03 22:15:25 by jariza-o         ###   ########.fr        #
+#    Updated: 2024/05/04 17:05:03 by jariza-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -g
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I./includes -g
 
 SRC		=	src/main.cpp src/RPN.cpp \
 
