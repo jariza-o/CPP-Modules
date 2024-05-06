@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:10:32 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/05 12:19:24 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 12:31:15 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ public:
 	~PmergeMe();
 
 	PmergeMe&	operator=(const PmergeMe& src);
-	void		printlist(int sorted) const;
+	void		printList(int sorted) const;
+
+	void		listAlgorithm(std::list<int>& list);
 
 private:
 	std::list<int>		_notSorted;
