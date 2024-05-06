@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:11:04 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/06 11:17:50 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 16:56:33 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv) {
 			PmergeMe	list(argv);
 			std::cout << "Before: ";
 			list.printList(0);
+			list.sort();
 			std::cout << "After:  ";
 			list.printList(1);
 			std::cout << "Time to process a range of 5 elements with std::list : ";

@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:11:08 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/06 13:58:53 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:24:24 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <stdexcept>
 #include <limits.h>
 #include <cmath>
+#include <algorithm>
+#include <iterator>
 
 PmergeMe::PmergeMe() {
 
@@ -61,7 +63,7 @@ void		PmergeMe::printList(int sorted) const {
 	std::list<int> list;
 	if (!sorted)
 		list = this->_notSorted;
-	else
+	else if (sorted == 1)
 		list = this->_list;
 	
 	std::list<int>::iterator	begin = list.begin();
@@ -72,63 +74,84 @@ void		PmergeMe::printList(int sorted) const {
 	std::cout << std::endl;
 }
 
-bool	listFin(std::list<int>::iterator	l, std::list<int>::iterator	r) {
-	while (l != r) {
-		
-	}
+void	PmergeMe::sort() {
+	this->sortAlgorithm(this->_list);
+	this->sortAlgorithm(this->_vector);
 }
 
-void	PmergeMe::binaryInsert(std::list<int> A, int sizeA, int	value) {
-	std::list<int>::iterator	l = A.begin();
-	std::list<int>::iterator	r = A.end();
-	--r;
-	
-	while (l <= r) {
-		std::list<int>::iterator m = std::floor((l + r) / 2);
-		if (A[m] < value)
-			l = m + 1;
-		else if
-			r = m + 1;
-		else
-			return m;
-	}
-	// return unsuccessful;
-}
-
-void		PmergeMe::listAlgorithm(std::list<int>& list) {
-	if (list.size() < 2)
+void	PmergeMe::sortAlgorithm(std::list<int>& list) {
+	if (list.size() < 2 || isSorted(list))
 		return ;
-	bool						imp = false;
-	int							impar;
-	std::list<int>				menores;
-	std::list<int>				mayores;
-	std::list<int>::iterator	begin = this->_list.begin();
-	std::list<int>::iterator	next = std::next(begin);
-	std::list<int>::iterator	end = this->_list.end();
-	while(next != end) {
-		if (*begin < *next) {
-			menores.push_back(*begin);
-			mayores.push_back(*next);
-		}
-		else {
-			menores.push_back(*next);
-			mayores.push_back(*begin);
-		}
-		begin++;
-		begin++;
-		next++;
-		next++;
-	}
-	this->listAlgorithm(mayores);
+	bool	imp = false;
+	int		impar;
+
 	if (list.size() % 2 != 0) {
-		--next;
-		impar = *next;
+		impar = list.back();
+		list.pop_back();
 		imp = true;
 	}
-	list.clear();
-	list.insert(list.end(), mayores.begin(), mayores.end());
+	std::list<int>::iterator	begin = this->_list.begin();
+	std::list<int>::iterator	end = this->_list.end();
+	while(begin != end) {
+		std::list<int>::iterator	next = std::next(begin);
+		if (*begin > *next)
+			std::swap(*begin, *next);
+		std::advance(begin, 2);
+	}
 	
+	for (size_t width = 2; width <= list.size(); width *= 2) { // Controla el ancho de los subconjuntos
+		std::list<int>::iterator	begin = list.begin();
+
+		while (std::distance(begin, list.end()) > 0) {
+			std::list<int>::iterator	middle = begin;
+			std::advance(middle, std::min(width, static_cast<size_t>(std::distance(begin, list.end()))));
+
+			std::list<int>::iterator	end = middle;
+			std::advance(end, std::min(width, static_cast<size_t>(std::distance(middle, list.end()))));
+
+			std::inplace_merge(begin, middle, end);
+			begin = end;
+		}
+	}
 	if (imp == true)
-		list.push_back(impar);
+		list.insert(std::upper_bound(list.begin(), list.end(), impar), impar);
+	std::cout << "ENTADA" << std::endl;
+}
+
+void	PmergeMe::sortAlgorithm(std::vector<int>& vector) {
+	if (vector.size() < 2 || isSorted(vector))
+		return ;
+	bool	imp = false;
+	int		impar;
+
+	if (vector.size() % 2 != 0) {
+		impar = vector.back();
+		vector.pop_back();
+		imp = true;
+	}
+	std::vector<int>::iterator	begin = this->_vector.begin();
+	std::vector<int>::iterator	end = this->_vector.end();
+	while(begin != end) {
+		std::vector<int>::iterator	next = std::next(begin);
+		if (*begin > *next)
+			std::swap(*begin, *next);
+		std::advance(begin, 2);
+	}
 	
+	for (size_t width = 2; width <= vector.size(); width *= 2) { // Controla el ancho de los subconjuntos
+		std::vector<int>::iterator	begin = vector.begin();
+
+		while (std::distance(begin, vector.end()) > 0) {
+			std::vector<int>::iterator	middle = begin;
+			std::advance(middle, std::min(width, static_cast<size_t>(std::distance(begin, vector.end()))));
+
+			std::vector<int>::iterator	end = middle;
+			std::advance(end, std::min(width, static_cast<size_t>(std::distance(middle, vector.end()))));
+
+			std::inplace_merge(begin, middle, end);
+			begin = end;
+		}
+	}
+	if (imp == true)
+		vector.insert(std::upper_bound(vector.begin(), vector.end(), impar), impar);
 }
