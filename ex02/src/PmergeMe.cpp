@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:11:08 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/06 17:24:24 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:07:41 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cmath>
 #include <algorithm>
 #include <iterator>
+#include <ctime>
 
 PmergeMe::PmergeMe() {
 
@@ -59,24 +60,36 @@ PmergeMe&	PmergeMe::operator=(const PmergeMe& src) {
 	return *this;
 }
 
-void		PmergeMe::printList(int sorted) const {
-	std::list<int> list;
+void		PmergeMe::printCall(int sorted) const {
 	if (!sorted)
-		list = this->_notSorted;
+		this->printContainer(this->_notSorted);
 	else if (sorted == 1)
-		list = this->_list;
-	
-	std::list<int>::iterator	begin = list.begin();
-	std::list<int>::iterator	end = list.end();
-	for (; begin != end; begin++) {
-		std::cout << *begin << " ";
-	}
-	std::cout << std::endl;
+		this->printContainer(this->_list);
+	else if (sorted == 2)
+		this->printContainer(this->_vector);
+}
+
+double		PmergeMe::getDuration(int	i){
+	if (i == 0)
+		return this->_sortListDuration;
+	else if (i == 1)
+		return this->_sortVectorDuration;
+	return 0;
 }
 
 void	PmergeMe::sort() {
+	clock_t start_time = clock();
 	this->sortAlgorithm(this->_list);
+	clock_t end_time = clock();
+	// this->_sortListDuration = (double)(end_time - start_time) / (double)CLOCKS_PER_SEC * 1e6;
+	this->_sortListDuration = (double)(end_time - start_time) / (double)CLOCKS_PER_SEC * 1000.0;
+
+	
+	clock_t start_time_2 = clock();
 	this->sortAlgorithm(this->_vector);
+	clock_t end_time_2 = clock();
+	// this->_sortVectorDuration = (end_time_2 - start_time_2) / (double)CLOCKS_PER_SEC * 1e6;
+	this->_sortVectorDuration = (end_time_2 - start_time_2) / (double)CLOCKS_PER_SEC * 1000.0;
 }
 
 void	PmergeMe::sortAlgorithm(std::list<int>& list) {
@@ -115,7 +128,6 @@ void	PmergeMe::sortAlgorithm(std::list<int>& list) {
 	}
 	if (imp == true)
 		list.insert(std::upper_bound(list.begin(), list.end(), impar), impar);
-	std::cout << "ENTADA" << std::endl;
 }
 
 void	PmergeMe::sortAlgorithm(std::vector<int>& vector) {
@@ -154,4 +166,8 @@ void	PmergeMe::sortAlgorithm(std::vector<int>& vector) {
 	}
 	if (imp == true)
 		vector.insert(std::upper_bound(vector.begin(), vector.end(), impar), impar);
+}
+
+size_t	PmergeMe::getSize() const {
+	return this->_notSorted.size();
 }

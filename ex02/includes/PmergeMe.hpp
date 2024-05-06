@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:10:32 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/06 16:44:32 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:00:50 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,17 @@ public:
 	~PmergeMe();
 
 	PmergeMe&	operator=(const PmergeMe& src);
-	void		printList(int sorted) const;
+
+	template<typename D>
+	void		printContainer(const D& container) const {
+		typename D::const_iterator	begin = container.begin();
+		typename D::const_iterator	end = container.end();
+		for (; begin != end; begin++) {
+			std::cout << *begin << " ";
+		}
+		std::cout << std::endl;
+	}
+	void		printCall(int sorted) const;
 
 	template<typename T>
 	bool		isSorted(const T& container) const {
@@ -44,10 +54,15 @@ public:
 	void		sort();
 	void		sortAlgorithm(std::list<int>& list);
 	void		sortAlgorithm(std::vector<int>& vector);
+	double		getDuration(int	i);
+
+	size_t		getSize() const;
 
 private:
 	std::list<int>		_notSorted;
+	double				_sortListDuration;
 	std::list<int>		_list;
+	double				_sortVectorDuration;
 	std::vector<int>	_vector;
 };
 

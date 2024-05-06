@@ -6,7 +6,7 @@
 /*   By: jariza-o <jariza-o@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:11:04 by jariza-o          #+#    #+#             */
-/*   Updated: 2024/05/06 16:56:33 by jariza-o         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:01:14 by jariza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,12 @@ int	main(int argc, char **argv) {
 		try {
 			PmergeMe	list(argv);
 			std::cout << "Before: ";
-			list.printList(0);
+			list.printCall(0);
 			list.sort();
 			std::cout << "After:  ";
-			list.printList(1);
-			std::cout << "Time to process a range of 5 elements with std::list : ";
-			// POENR AQUI TIEMPO
-			std::cout << " us" << std::endl;
-			std::cout << "Time to process a range of 5 elements with std::vector : ";
-			// POENR AQUI TIEMPO
-			std::cout << " us" << std::endl;
+			list.printCall(1);
+			std::cout << "Time to process a range of " << list.getSize() << " elements with std::list : " << list.getDuration(0) << " us" << std::endl;
+			std::cout << "Time to process a range of " << list.getSize() << " elements with std::vector : " <<	list.getDuration(1) << " us" << std::endl;
 		}
 		catch (const std::exception& e) {
 			std::cout << "ERROR" << std::endl;
